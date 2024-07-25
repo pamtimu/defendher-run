@@ -10,9 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_23_163333) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_25_090529) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.bigint "user_one_id", null: false
+    t.bigint "user_two_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_one_id"], name: "index_chatrooms_on_user_one_id"
+    t.index ["user_two_id"], name: "index_chatrooms_on_user_two_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "user_one_id", null: false
+    t.bigint "user_two_id", null: false
+    t.boolean "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_one_id"], name: "index_friendships_on_user_one_id"
+    t.index ["user_two_id"], name: "index_friendships_on_user_two_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.string "address"
+    t.decimal "distance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "running_sessions", force: :cascade do |t|
+    t.bigint "route_id", null: false
+    t.date "date"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["route_id"], name: "index_running_sessions_on_route_id"
+  end
+
+  create_table "saved_routes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "route_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["route_id"], name: "index_saved_routes_on_route_id"
+    t.index ["user_id"], name: "index_saved_routes_on_user_id"
+  end
+
+  create_table "session_partipants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "running_session_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["running_session_id"], name: "index_session_partipants_on_running_session_id"
+    t.index ["user_id"], name: "index_session_partipants_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +85,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_163333) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chatrooms", "users", column: "user_one_id"
+  add_foreign_key "chatrooms", "users", column: "user_two_id"
+  add_foreign_key "friendships", "users", column: "user_one_id"
+  add_foreign_key "friendships", "users", column: "user_two_id"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "running_sessions", "routes"
+  add_foreign_key "saved_routes", "routes"
+  add_foreign_key "saved_routes", "users"
+  add_foreign_key "session_partipants", "running_sessions"
+  add_foreign_key "session_partipants", "users"
 end
