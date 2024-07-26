@@ -9,6 +9,19 @@
 #   end
 puts "🗑️ Destroying all routes..."
 Route.destroy_all
+puts "🗑️ Destroying all users..."
+User.destroy_all
+
+user = [
+  { email:"pam@kool.com", password:"123456" },
+  { email:"chrsitian@kool.com", password:"123456" },
+  { email:"andrew@kool.com", password:"123456" },
+]
+
+puts "🧍 Creating user..."
+user.each do |user|
+  User.create!(user)
+end
 
 routes = [
   { address: "Bondi to Coogee Walk, Sydney, NSW", distance: 6.0 },
