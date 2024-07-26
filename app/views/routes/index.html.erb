@@ -1,9 +1,9 @@
 <h1>Running Routes</h1>
   <div class="container">
-    <% @running_routes.each do |route| %>
+    <% @routes.each do |route| %>
       <div class="route">
-        <h2><%= route.name %></h2>
-        <p><%= route.description %></p>
+        <h2><%= route.address %></h2>
+        <p><%= route.distance %></p>
         <a href="<%= route_path(route) %>" class="btn">View Route</a>
       </div>
     <% end %>
