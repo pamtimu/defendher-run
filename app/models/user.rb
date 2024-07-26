@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :session_participants
   has_many :saved_routes
+  has_many :routes, through: :saved_routes
   has_one_attached :photo
 end
