@@ -23,4 +23,18 @@ routes.each do |route|
   Route.create!(route)
 end
 
+puts "🗑️ Destroying all users..."
+User.destroy_all
+
+puts "Creating users..."
+5.times do
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "password",
+    address: Faker::Address.full_address
+  )
+end
+
 puts "✅ Finished!"
