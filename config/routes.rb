@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get "/saved_routes", to: "pages#saved_routes"
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :routes, only: [:index, :show]
   resources :users, only: [:show]
