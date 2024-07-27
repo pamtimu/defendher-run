@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def saved_routes
+    @routes = Route.all
+  end
+
 end
