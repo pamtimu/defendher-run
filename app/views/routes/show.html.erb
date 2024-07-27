@@ -1,0 +1,6 @@
+<h1><%= @route.address %></h1>
+<p>Distance: <%= @route.distance %> km</p>
+<p>Created at: <%= @route.created_at %></p>
+<p>Updated at: <%= @route.updated_at %></p>
+
+<%= link_to 'Back to Routes', routes_path, class: 'btn' %>
