@@ -11,7 +11,6 @@ before_action :set_route, only: [:show]
         marker_html: render_to_string(partial: "marker")
       }
     end
-    raise
   end
 
   def show
