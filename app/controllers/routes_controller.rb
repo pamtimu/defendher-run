@@ -9,7 +9,7 @@ before_action :set_route, only: [:show]
   end
 
   def saved_routes
-    @routes = Route.all
+    @routes = current_user.routes
   end
 
   private
