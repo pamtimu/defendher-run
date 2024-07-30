@@ -17,7 +17,7 @@ puts 'Creating 20 fake routes...'
   route = Route.new(
     address:    "#{Faker::Locations::Australia.location}, #{Faker::Locations::Australia.state}",
     distance: rand(0..15),
-    image: Faker::LoremFlickr.image,
+    #image: Faker::LoremFlickr.image,
   )
   route.save!
 end
