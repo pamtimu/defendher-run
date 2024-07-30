@@ -19,7 +19,7 @@ before_action :set_route, only: [:show]
   private
 
   def route_params
-    params.require(:route).permit(:name, :description)
+    params.require(:route).permit(:address, :distance, :image)
   end
 
   def set_route
