@@ -16,6 +16,10 @@ before_action :set_route, only: [:show]
   def show
   end
 
+  def saved_routes
+    @routes = Route.all
+  end
+
   private
 
   def route_params
