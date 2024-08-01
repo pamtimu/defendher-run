@@ -1,10 +1,49 @@
+<!-- Top Section: List of Running Routes -->
 <h1>Running Routes</h1>
 <div class="container">
   <% @routes.each do |route| %>
-    <div class="route">
-      <h2><%= link_to route.address, route_path(route) %></h2>
-      <p>Distance: <%= route.distance %> km</p>
-      <%= link_to 'View Route', route_path(route), class: 'btn' %>
+    <div class="card-trip">
+      <!-- Placeholder image for the route or a dynamic image if available -->
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Trip Image" />
+
+      <div class="card-trip-infos">
+        <div class="route-details">
+          <!-- Route title linked to its detailed page -->
+          <h2><%= link_to route.name, route_path(route) %></h2>
+
+          <!-- Distance and description of the route -->
+          <p>Address: <%= route.address %></p>
+          <p>Distance: <%= route.distance %> km</p>
+          <p>Description: <%= route.description %></p>
+
+          <!-- Link to view the route in detail -->
+          <%= link_to 'View Route', route_path(route), class: 'btn' %>
+
+          <!-- Optional image associated with the route -->
+          <% if route.image.present? %>
+            <%= image_tag route.image, alt: "Route Image" %>
+          <% end %>
+        </div>
+
+        <!-- Optional pricing and user info -->
+        <h2 class="card-trip-pricing">£99.99</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" alt="User Avatar" />
+      </div>
     </div>
   <% end %>
+</div>
+
+<!-- Bottom Section: Additional Content or Placeholder -->
+<div class="bottom-section">
+  <!-- You can place additional content or another section here -->
+  <h2>Explore More Routes</h2>
+  <p>Discover more exciting routes and adventures tailored to your preferences!</p>
+  <!-- Optionally, include more links or content -->
+</div>
+
+
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>

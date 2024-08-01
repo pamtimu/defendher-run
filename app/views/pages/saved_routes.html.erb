@@ -1,0 +1,10 @@
+<h1>Saved routes index page</h1>
+
+<ul>
+  <% @routes.each do |route| %>
+    <h3><% route.address %></h3>
+    <li>
+      <%= link_to route.address, route_path(route) %>
+    </li>
+  <% end %>
+</ul>

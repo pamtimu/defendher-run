@@ -1,7 +1,15 @@
 <div class="footer">
   <div class="footer-links">
-    <a href="#">Home<i class="fa-solid fa-location-dot"></i></a>
-    <a href="#">Saved<i class="fa-regular fa-bookmark"></i></a>
+
+    <%= link_to(root_path) do |route| %>
+      Home<i class="fa-solid fa-location-dot"></i>
+    <% end %>
+
+     <%= link_to(saved_routes_path) do |route| %>
+       Saved<i class="fa-regular fa-bookmark"></i>
+    <% end %>
+
     <a href="#">Notifications<i class="fa-regular fa-bell"></i>
   </div>
 </div>
+
