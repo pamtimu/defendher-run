@@ -508,7 +508,12 @@ puts "🗑️ Destroying all users..."
 User.destroy_all
 
 User.create!(
-  first_name: "admin", last_name: "admin", email: "admin@lewagon.com", password: "password", address: "Brisbane, QLD")
+  first_name: "Admin",
+  last_name: "User",
+  email: "admin@admin.com",
+  password: "123456"
+)
+
 
 puts "Creating users..."
 5.times do
@@ -520,5 +525,14 @@ puts "Creating users..."
     address: Faker::Address.full_address
   )
 end
+
+
+Route.all.each do |route|
+  saved_route = SavedRoute.new()
+  saved_route.user = User.first
+  saved_route.route = route
+  saved_route.save!
+end
+
 
 puts "✅ Finished!"
