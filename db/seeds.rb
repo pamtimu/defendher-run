@@ -10,6 +10,12 @@
 puts "🗑️ Destroying all routes..."
 Route.destroy_all
 
+puts "🗑️ Destroying all chatrooms..."
+Chatroom.destroy_all
+
+puts "🗑️ Destroying all users..."
+User.destroy_all
+
 routes = [
   { address: "Bondi to Coogee Walk, Sydney, NSW", distance: 6.0 },
   { address: "Albert Park Lake, Melbourne, VIC", distance: 4.8 },
@@ -23,9 +29,6 @@ routes.each do |route|
   Route.create!(route)
 end
 
-puts "🗑️ Destroying all users..."
-User.destroy_all
-
 puts "Creating users..."
 5.times do
   User.create!(
@@ -36,5 +39,12 @@ puts "Creating users..."
     address: Faker::Address.full_address
   )
 end
+
+puts "Creating chatrooms..."
+Chatroom.create!(
+  user_one_id: User.all.sample.id,
+  user_two_id: User.all.sample.id
+)
+
 
 puts "✅ Finished!"
