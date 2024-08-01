@@ -12,6 +12,26 @@ require 'faker'
 puts "🗑️ Destroying all routes..."
 Route.destroy_all
 
+
+puts "🗑️ Destroying all chatrooms..."
+Chatroom.destroy_all
+
+puts "🗑️ Destroying all users..."
+User.destroy_all
+
+routes = [
+  { address: "Bondi to Coogee Walk, Sydney, NSW", distance: 6.0 },
+  { address: "Albert Park Lake, Melbourne, VIC", distance: 4.8 },
+  { address: "Kangaroo Point Cliffs, Brisbane, QLD", distance: 5.0 },
+  { address: "Kings Park and Botanic Garden, Perth, WA", distance: 7.0 },
+  { address: "Torrens River, Adelaide, SA", distance: 8.4 }
+]
+
+puts "Creating routes..."
+routes.each do |route|
+  Route.create!(route)
+end
+
 puts 'Finding routes in Australia...'
 Route.create!(
   [
@@ -504,8 +524,6 @@ Route.create!(
   ]
 )
 
-puts "🗑️ Destroying all users..."
-User.destroy_all
 
 User.create!(
   first_name: "Admin",
@@ -527,12 +545,19 @@ puts "Creating users..."
 end
 
 
+puts "Creating chatrooms..."
+Chatroom.create!(
+  user_one_id: User.all.sample.id,
+  user_two_id: User.all.sample.id
+)
+
 Route.all.each do |route|
   saved_route = SavedRoute.new()
   saved_route.user = User.first
   saved_route.route = route
   saved_route.save!
 end
+
 
 
 puts "✅ Finished!"
