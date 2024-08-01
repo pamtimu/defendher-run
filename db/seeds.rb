@@ -19,7 +19,8 @@ Route.create!(
       address: "Bondi Beach, Sydney, NSW",
       name: "Bondi to Coogee Coastal Walk",
       distance: 6.0,
-      description: "A stunning coastal walk from Bondi Beach to Coogee Beach, featuring breathtaking ocean views, cliffs, and beaches along the way."
+      description: "A stunning coastal walk from Bondi Beach to Coogee Beach, featuring breathtaking ocean views, cliffs, and beaches along the way.",
+      image: "routes/bondi.jpg"
     },
     {
       address: "Albert Park, Melbourne, VIC",
