@@ -4,7 +4,11 @@
   <% @routes.each do |route| %>
     <div class="card-trip">
       <!-- Placeholder image for the route or a dynamic image if available -->
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Trip Image" />
+      <% if route.image.present? %>
+            <%= image_tag route.image, alt: "Trip Image" %>
+        <%else%>
+       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt= "Trip Image"/>
+      <% end %>
 
       <div class="card-trip-infos">
         <div class="route-details">
@@ -20,9 +24,6 @@
           <%= link_to 'View Route', route_path(route), class: 'btn' %>
 
           <!-- Optional image associated with the route -->
-          <% if route.image.present? %>
-            <%= image_tag route.image, alt: "Route Image" %>
-          <% end %>
         </div>
 
         <!-- Optional pricing and user info -->

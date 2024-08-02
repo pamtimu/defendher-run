@@ -26,73 +26,85 @@ Route.create!(
       address: "Albert Park, Melbourne, VIC",
       name: "Albert Park Lake",
       distance: 5.0,
-      description: "A flat and scenic loop around Albert Park Lake, offering views of the Melbourne skyline and the tranquil waters of the lake."
+      description: "A flat and scenic loop around Albert Park Lake, offering views of the Melbourne skyline and the tranquil waters of the lake.",
+      image: "route/albert_park_melbourne.jpg"
     },
     {
       address: "Kangaroo Point, Brisbane, QLD",
       name: "Kangaroo Point Cliffs",
       distance: 7.0,
-      description: "Run along the Brisbane River with stunning views of the city, passing by the iconic Kangaroo Point Cliffs and Story Bridge."
+      description: "Run along the Brisbane River with stunning views of the city, passing by the iconic Kangaroo Point Cliffs and Story Bridge.",
+      image: "routes/brisbane city.jpg"
     },
     {
       address: "King's Park, Perth, WA",
       name: "Kings Park and Botanic Garden",
       distance: 6.0,
-      description: "A scenic route through one of the largest inner-city parks in the world, offering panoramic views of Perth and the Swan River."
+      description: "A scenic route through one of the largest inner-city parks in the world, offering panoramic views of Perth and the Swan River.",
+      image: "routes/kingspark.jpg"
     },
     {
       address: "The Esplanade, Cairns, QLD",
       name: "Cairns Esplanade",
       distance: 3.5,
-      description: "A leisurely run along the Cairns Esplanade, with views of the Coral Sea, public art installations, and lush tropical greenery."
+      description: "A leisurely run along the Cairns Esplanade, with views of the Coral Sea, public art installations, and lush tropical greenery.",
+      image: "routes/woman running.jpg"
     },
     {
       address: "Mt. Ainslie Drive, Canberra, ACT",
       name: "Mount Ainslie",
       distance: 4.5,
-      description: "A challenging run with a rewarding view from the top of Mount Ainslie, overlooking Canberra's city layout and surrounding nature."
+      description: "A challenging run with a rewarding view from the top of Mount Ainslie, overlooking Canberra's city layout and surrounding nature.",
+      image: "routes/canberra.jpg"
     },
    {
       address: "Manly Beach, Sydney, NSW",
       name: "Manly to Spit Bridge Walk",
       distance: 10.0,
-      description: "A beautiful coastal trail from Manly Beach to Spit Bridge, featuring bushland, hidden coves, and stunning harbour views."
+      description: "A beautiful coastal trail from Manly Beach to Spit Bridge, featuring bushland, hidden coves, and stunning harbour views.",
+      image: "routes/manly beach.jpg"
     },
     {
       address: "The Tan Track, Melbourne, VIC",
       name: "Royal Botanic Gardens",
       distance: 3.8,
-      description: "A popular track around the Royal Botanic Gardens, offering a mix of flat and undulating terrain with picturesque garden views."
+      description: "A popular track around the Royal Botanic Gardens, offering a mix of flat and undulating terrain with picturesque garden views.",
+      image: "routes/melbourne.jpg"
     },
     {
       address: "South Bank, Brisbane, QLD",
       name: "South Bank and Kangaroo Point",
       distance: 5.5,
-      description: "A scenic riverside route along South Bank and the Brisbane River, passing by parklands, cultural sites, and city views."
+      description: "A scenic riverside route along South Bank and the Brisbane River, passing by parklands, cultural sites, and city views.",
+      image: "routes/southbank.jpg"
     },
     {
       address: "Cottesloe Beach, Perth, WA",
       name: "Cottesloe to Swanbourne Beach",
       distance: 5.0,
-      description: "A coastal run along the Indian Ocean from Cottesloe Beach to Swanbourne Beach, known for its clear waters and sandy shores."
+      description: "A coastal run along the Indian Ocean from Cottesloe Beach to Swanbourne Beach, known for its clear waters and sandy shores.",
+      image: "routes/perth.jpg"
     },
     {
       address: "Yarra River, Melbourne, VIC",
       name: "Yarra River Trail",
       distance: 8.0,
-      description: "A scenic trail along the Yarra River, providing a peaceful escape from the city with views of the river and surrounding parklands."
+      description: "A scenic trail along the Yarra River, providing a peaceful escape from the city with views of the river and surrounding parklands.",
+      image: "routes/river.jpg"
     },
     {
       address: "Stamford Hill Road, Port Lincoln, SA",
       name: "Lincoln National Park",
       distance: 6.0,
-      description: "A rugged trail in Lincoln National Park, offering coastal views, native bushland, and the chance to see local wildlife."
+      description: "A rugged trail in Lincoln National Park, offering coastal views, native bushland, and the chance to see local wildlife.",
+      image: "routes/port.jpg"
     },
     {
       address: "Glenelg Beach, Adelaide, SA",
       name: "Glenelg to Brighton Coastal Trail",
       distance: 8.0,
-      description: "A scenic coastal trail from Glenelg to Brighton, featuring sandy beaches, coastal parks, and ocean views."
+      description: "A scenic coastal trail from Glenelg to Brighton, featuring sandy beaches, coastal parks, and ocean views.",
+      image: "routes/manly beach.jpg"
     },
     {
       address: "Hobart, TAS",
@@ -380,127 +392,148 @@ Route.create!(
       address: "Hahndorf, Adelaide Hills, SA",
       name: "Hahndorf to Mount Lofty",
       distance: 9.0,
-      description: "A scenic trail running from the charming town of Hahndorf to the summit of Mount Lofty, offering diverse landscapes, lush forests, and panoramic views."
+      description: "A scenic trail running from the charming town of Hahndorf to the summit of Mount Lofty, offering diverse landscapes, lush forests, and panoramic views.",
+      image: "routes/adelaide.jpg"
     },
     {
       address: "Adelaide CBD, Adelaide, SA",
       name: "Adelaide Oval to Riverbank",
       distance: 3.0,
-      description: "A city route starting at Adelaide Oval and running along the Riverbank, with views of the stadium, Torrens River, and nearby cultural attractions."
+      description: "A city route starting at Adelaide Oval and running along the Riverbank, with views of the stadium, Torrens River, and nearby cultural attractions.",
+      image: "routes/adelaidecbd.jpg"
     },
     {
       address: "Lake Burley Griffin, Canberra, ACT",
       name: "Lake Burley Griffin Loop",
       distance: 10.0,
-      description: "A classic Canberra run around Lake Burley Griffin, offering picturesque views of the lake, national monuments, and cityscape."
+      description: "A classic Canberra run around Lake Burley Griffin, offering picturesque views of the lake, national monuments, and cityscape.",
+      image: "routes/canberramt.jpg"
     },
     {
       address: "Mount Ainslie, Canberra, ACT",
       name: "Mount Ainslie Summit Track",
       distance: 4.0,
-      description: "A challenging climb to the summit of Mount Ainslie, providing panoramic views of Canberra and the surrounding regions."
+      description: "A challenging climb to the summit of Mount Ainslie, providing panoramic views of Canberra and the surrounding regions.",
+      image: "routes/canberramt.jpg"
     },
     {
       address: "Black Mountain, Canberra, ACT",
       name: "Black Mountain Nature Reserve",
       distance: 6.0,
-      description: "A scenic run through the Black Mountain Nature Reserve, featuring bushland, elevated views, and diverse flora and fauna."
+      description: "A scenic run through the Black Mountain Nature Reserve, featuring bushland, elevated views, and diverse flora and fauna.",
+      image: "routes/canberramt.jpg"
     },
     {
       address: "Commonwealth Park, Canberra, ACT",
       name: "Commonwealth Park Circuit",
       distance: 3.5,
-      description: "A pleasant run through Commonwealth Park, featuring well-maintained paths, gardens, and views of Lake Burley Griffin."
+      description: "A pleasant run through Commonwealth Park, featuring well-maintained paths, gardens, and views of Lake Burley Griffin.",
+      image: "routes/canberra3.jpg"
     },
     {
       address: "Red Hill, Canberra, ACT",
       name: "Red Hill Track",
       distance: 5.0,
-      description: "A scenic trail through Red Hill, offering views of the city and surrounding bushland, with a mix of forest paths and open areas."
+      description: "A scenic trail through Red Hill, offering views of the city and surrounding bushland, with a mix of forest paths and open areas.",
+      image: "routes/canberra2.jpg"
     },
     {
       address: "Canberra Nature Park, Canberra, ACT",
       name: "Yarralumla Loop",
       distance: 7.0,
-      description: "A scenic loop through Yarralumla, part of the Canberra Nature Park, featuring bushland trails, peaceful surroundings, and views of Lake Burley Griffin."
+      description: "A scenic loop through Yarralumla, part of the Canberra Nature Park, featuring bushland trails, peaceful surroundings, and views of Lake Burley Griffin.",
+      image: "routes/canberra.jpg"
     },
     {
       address: "Gungahlin, Canberra, ACT",
       name: "Gungahlin Town Centre to Mulligans Flat",
       distance: 8.0,
-      description: "A run from Gungahlin Town Centre to Mulligans Flat, offering a mix of urban and bushland scenery with views of the local wildlife reserve."
+      description: "A run from Gungahlin Town Centre to Mulligans Flat, offering a mix of urban and bushland scenery with views of the local wildlife reserve.",
+      image: "routes/canberra3.jpg"
     },
     {
       address: "Canberra Central, Canberra, ACT",
       name: "City Walk",
       distance: 2.5,
-      description: "A short urban route through the heart of Canberra's Central Business District, featuring city landmarks, shops, and public art."
+      description: "A short urban route through the heart of Canberra's Central Business District, featuring city landmarks, shops, and public art.",
+      image: "routes/canberra2.jpg"
     },
     {
       address: "Mount Majura, Canberra, ACT",
       name: "Mount Majura Summit Trail",
       distance: 5.5,
-      description: "A rugged trail leading to the summit of Mount Majura, providing spectacular views of Canberra and the surrounding countryside."
+      description: "A rugged trail leading to the summit of Mount Majura, providing spectacular views of Canberra and the surrounding countryside.",
+      image: "routes/canberra.jpg"
     },
     {
       address: "Brindabella Ranges, Canberra, ACT",
       name: "Brindabella Ranges Trails",
       distance: 12.0,
-      description: "A longer, more challenging route through the Brindabella Ranges, offering stunning mountain views, diverse terrain, and a true nature experience."
+      description: "A longer, more challenging route through the Brindabella Ranges, offering stunning mountain views, diverse terrain, and a true nature experience.",
+      image: "routes/canberra.jpg"
     },
 {
       address: "Royal National Park, Sydney, NSW",
       name: "Coastal Track",
       distance: 26.0,
-      description: "A stunning coastal trail running from Bundeena to Otford, featuring rugged cliffs, secluded beaches, and lush rainforest."
+      description: "A stunning coastal trail running from Bundeena to Otford, featuring rugged cliffs, secluded beaches, and lush rainforest.",
+      image: "routes/sydeny.jpg"
     },
     {
       address: "Blue Mountains, NSW",
       name: "Six Foot Track",
       distance: 45.0,
-      description: "A classic long-distance trail that crosses through remote bushland and offers spectacular views of the Blue Mountains."
+      description: "A classic long-distance trail that crosses through remote bushland and offers spectacular views of the Blue Mountains.",
+      image: "routes/woman running 2.jpg"
     },
     {
       address: "Great Ocean Road, VIC",
       name: "Great Ocean Walk",
       distance: 104.0,
-      description: "A multi-day trail along the dramatic coastline of Victoria, featuring breathtaking ocean views, waterfalls, and diverse landscapes."
+      description: "A multi-day trail along the dramatic coastline of Victoria, featuring breathtaking ocean views, waterfalls, and diverse landscapes.",
+      image: "routes/ocean.jpg"
     },
     {
       address: "Grampians National Park, VIC",
       name: "Pinnacles Trail",
       distance: 4.0,
-      description: "A steep trail leading to the Pinnacles, offering panoramic views of the Grampians and rugged rock formations."
+      description: "A steep trail leading to the Pinnacles, offering panoramic views of the Grampians and rugged rock formations.",
+      image: "routes/another woman running.jpg"
     },
     {
       address: "Glass House Mountains, QLD",
       name: "Mount Ngungun",
       distance: 2.8,
-      description: "A short but steep climb to the summit of Mount Ngungun, offering spectacular views of the Glass House Mountains."
+      description: "A short but steep climb to the summit of Mount Ngungun, offering spectacular views of the Glass House Mountains.",
+      image: "routes/woman running.jpg"
     },
     {
       address: "Lamington National Park, QLD",
       name: "Border Track",
       distance: 21.0,
-      description: "A trail that traverses the border between Queensland and New South Wales, featuring ancient rainforest and diverse wildlife."
+      description: "A trail that traverses the border between Queensland and New South Wales, featuring ancient rainforest and diverse wildlife.",
+      image: "routes/woman running 2.jpg"
     },
     {
       address: "Flinders Ranges, SA",
       name: "Wilpena Pound",
       distance: 6.0,
-      description: "A trail around the rim of Wilpena Pound, offering panoramic views of this ancient crater and the surrounding ranges."
+      description: "A trail around the rim of Wilpena Pound, offering panoramic views of this ancient crater and the surrounding ranges.",
+      image: "routes/woman running 3.jpg"
     },
     {
       address: "Kings Park, Perth, WA",
       name: "Kings Park Trails",
       distance: "Varies",
-      description: "Multiple trails within Kings Park offer diverse running options with views of Perth’s skyline and the Swan River."
+      description: "Multiple trails within Kings Park offer diverse running options with views of Perth’s skyline and the Swan River.",
+      image: "routes/kingspark.jpg"
     },
     {
       address: "Cradle Mountain, TAS",
       name: "Overland Track",
       distance: 65.0,
-      description: "A multi-day trek through some of Tasmania’s most stunning wilderness, featuring alpine meadows, rainforests, and rugged mountains."
+      description: "A multi-day trek through some of Tasmania’s most stunning wilderness, featuring alpine meadows, rainforests, and rugged mountains.",
+      image: "routes/cradle.jpg"
     }
   ]
 )
