@@ -52,7 +52,7 @@ Route.create!(
       name: "Albert Park Lake",
       distance: 5.0,
       description: "A flat and scenic loop around Albert Park Lake, offering views of the Melbourne skyline and the tranquil waters of the lake.",
-      image: "route/albert_park_melbourne.jpg"
+      image: "routes/albert_park_melbourne.jpg"
     },
     {
       address: "Kangaroo Point, Brisbane, QLD",
@@ -293,7 +293,7 @@ Route.create!(
       name: "Yarra Bend Park",
       distance: 8.0,
       description: "An undulating route through Yarra Bend Park, offering views of the Yarra River and Melbourne's skyline, great for a challenging run.",
-      image: "roures/kingspark.jpg"
+      image: "routes/kingspark.jpg"
     },
     {
       address: "St Kilda Beach, Melbourne, VIC",
@@ -313,7 +313,8 @@ Route.create!(
       address: "Brighton Beach, Melbourne, VIC",
       name: "Brighton Bathing Boxes",
       distance: 4.0,
-      description: "A scenic beachside run starting at the iconic Brighton Bathing Boxes, known for their vibrant colors and beautiful beach views."
+      description: "A scenic beachside run starting at the iconic Brighton Bathing Boxes, known for their vibrant colors and beautiful beach views.",
+      image: "routes/ocean.jpg"
     },
     {
       address: "Docklands, Melbourne, VIC",
@@ -418,7 +419,7 @@ Route.create!(
       name: "Mawson Lakes Loop",
       distance: 5.0,
       description: "A run around the picturesque Mawson Lakes, offering scenic water views, well-maintained paths, and opportunities to spot local wildlife.",
-      image: "routes/adelaide.jpg"
+      image: "routes/trail.jpg"
     },
     {
       address: "Adelaide Hills, Adelaide, SA",
@@ -460,7 +461,7 @@ Route.create!(
       name: "Hahndorf to Mount Lofty",
       distance: 9.0,
       description: "A scenic trail running from the charming town of Hahndorf to the summit of Mount Lofty, offering diverse landscapes, lush forests, and panoramic views.",
-      image: "routes/adelaide.jpg"
+      image: "routes/adelaidepark.jpg"
     },
     {
       address: "Adelaide CBD, Adelaide, SA",
@@ -544,7 +545,7 @@ Route.create!(
       name: "Coastal Track",
       distance: 26.0,
       description: "A stunning coastal trail running from Bundeena to Otford, featuring rugged cliffs, secluded beaches, and lush rainforest.",
-      image: "routes/sydeny.jpg"
+      image: "routes/sydney.jpg"
     },
     {
       address: "Blue Mountains, NSW",
@@ -565,7 +566,7 @@ Route.create!(
       name: "Pinnacles Trail",
       distance: 4.0,
       description: "A steep trail leading to the Pinnacles, offering panoramic views of the Grampians and rugged rock formations.",
-      image: "routes/another woman running.jpg"
+      image: "routes/another woman running horizontal.jpg"
     },
     {
       address: "Glass House Mountains, QLD",
