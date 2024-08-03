@@ -9,6 +9,9 @@
 #   end
 require 'faker'
 
+puts "🗑️ Destroying all saved routes..."
+SavedRoute.destroy_all
+
 puts "🗑️ Destroying all routes..."
 Route.destroy_all
 
@@ -18,6 +21,8 @@ Chatroom.destroy_all
 
 puts "🗑️ Destroying all users..."
 User.destroy_all
+
+
 
 routes = [
   { address: "Bondi to Coogee Walk, Sydney, NSW", distance: 6.0 },
