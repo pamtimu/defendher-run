@@ -14,6 +14,14 @@ before_action :set_route, only: [:show]
   end
 
   def show
+    @marker = [
+      {
+        lat: @route.latitude,
+        lng: @route.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { route: @route }),
+        marker_html: render_to_string(partial: "marker")
+      }
+    ]
   end
 
   def saved_routes
