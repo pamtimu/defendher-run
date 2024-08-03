@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :chatrooms, only: [:show] do
+  resources :chatrooms, except: [:edit, :update, :new] do
     resources :messages, only: :create
   end
 
