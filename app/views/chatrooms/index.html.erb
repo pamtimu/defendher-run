@@ -1,0 +1,18 @@
+<h2>Your chats</h2>
+<% if @chatrooms.length != 0 %>
+  <div class="cards">
+    <% @chatrooms.each do |chatroom| %>
+      <%= link_to(chatroom_path(chatroom)) do %>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2><%= chatroom.user_two.first_name %></h2>
+            <% if chatroom.messages.last %>
+              <p><%= chatroom.messages.last.content %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
