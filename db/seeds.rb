@@ -89,15 +89,6 @@ Route.create!(
         longitude: 151.282364
     },
     {
-        address: "The Tan Track, Melbourne, VIC",
-        name: "Royal Botanic Gardens",
-        distance: 3.8,
-        description: "A popular track around the Royal Botanic Gardens, offering a mix of flat and undulating terrain with picturesque garden views.",
-        image: "routes/melbourne.jpg",
-        latitude: -37.830481,
-        longitude: 144.979795
-    },
-    {
         address: "South Bank, Brisbane, QLD",
         name: "South Bank and Kangaroo Point",
         distance: 5.5,
@@ -538,15 +529,6 @@ Route.create!(
       description: "A beautiful run along the Merri Creek Trail, winding through native bushland, parks, and scenic creek views, ideal for nature lovers.",
       latitude: -37.7550,
       longitude: 144.9988
-    },
-    {
-      address: "Yarra Boulevard, Melbourne, VIC",
-      name: "Yarra Bend Park",
-      distance: 8.0,
-      description: "An undulating route through Yarra Bend Park, offering views of the Yarra River and Melbourne's skyline, great for a challenging run.",
-      image: "routes/kingspark.jpg",
-      latitude: -37.7865,
-      longitude: 145.0123
     },
     {
       address: "St Kilda Beach, Melbourne, VIC",
