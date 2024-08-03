@@ -1,6 +1,16 @@
-<h1><%= @route.address %></h1>
-<p>Distance: <%= @route.distance %> km</p>
-<p>Created at: <%= @route.created_at %></p>
-<p>Updated at: <%= @route.updated_at %></p>
+<h1><%= @route.name %></h1>
 
-<%= link_to 'Back to Routes', routes_path, class: 'btn' %>
+
+<div class="text-center">
+  <%= image_tag @route.image, alt: "#{@route.name} image", class: "img-fluid" %>
+</div>
+
+<p>Address: <%= @route.address %></p>
+<p>Distance: <%= @route.distance %> km</p>
+<p>Description: <%= @route.description %></p>
+
+<div class="text-center">
+  <%= link_to 'Back to Routes', routes_path, class: 'btn btn-success' %>
+  <%= link_to 'Save Route', "#", class: 'btn btn-success' %>
+
+</div>
