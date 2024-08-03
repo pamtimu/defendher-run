@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :routes, only: [:index, :show]
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :chatrooms, only: [:create]
+  end
 
-  resources :chatrooms, except: [:edit, :update, :new] do
+  resources :chatrooms, except: [:edit, :update, :new, :create] do
     resources :messages, only: :create
   end
 
