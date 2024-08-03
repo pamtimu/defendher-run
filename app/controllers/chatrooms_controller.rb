@@ -20,7 +20,7 @@ class ChatroomsController < ApplicationController
   end
 
   def index
-    @chatrooms = Chatroom.all
+    @chatrooms = Chatroom.where(user_one: current_user)
   end
 
   def destroy
