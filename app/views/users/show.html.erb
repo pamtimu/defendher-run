@@ -1,4 +1,7 @@
 <div class="users-header">
+  <div class="logout">
+    <%= link_to("Logout", destroy_user_session_path, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }) %>
+  </div>
   <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
   <h4><%= @user.email %></h4>
