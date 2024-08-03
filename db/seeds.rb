@@ -242,19 +242,22 @@ Route.create!(
       address: "Royal Botanic Garden, Sydney, NSW",
       name: "Royal Botanic Garden Circuit",
       distance: 2.0,
-      description: "A peaceful route through the Royal Botanic Garden, offering lush plant life, tranquil ponds, and views of the harbour."
+      description: "A peaceful route through the Royal Botanic Garden, offering lush plant life, tranquil ponds, and views of the harbour.",
+      image: "routes/sydneypark.jpg"
     },
     {
       address: "Lane Cove National Park, Sydney, NSW",
       name: "Lane Cove Riverside Track",
       distance: 5.5,
-      description: "A nature-filled route along the Lane Cove River, perfect for a tranquil escape into bushland, with chances to spot local wildlife."
+      description: "A nature-filled route along the Lane Cove River, perfect for a tranquil escape into bushland, with chances to spot local wildlife.",
+      image: "routes/trail.jpg"
     },
     {
       address: "Barangaroo Reserve, Sydney, NSW",
       name: "Barangaroo Reserve Loop",
       distance: 2.2,
-      description: "A modern and scenic run around Barangaroo Reserve, offering views of Sydney Harbour and the city skyline."
+      description: "A modern and scenic run around Barangaroo Reserve, offering views of Sydney Harbour and the city skyline.",
+      image: "routes/trail.jpg"
     },
     {
       address: "The Tan Track, Melbourne, VIC",
@@ -284,19 +287,22 @@ Route.create!(
       address: "Yarra Boulevard, Melbourne, VIC",
       name: "Yarra Bend Park",
       distance: 8.0,
-      description: "An undulating route through Yarra Bend Park, offering views of the Yarra River and Melbourne's skyline, great for a challenging run."
+      description: "An undulating route through Yarra Bend Park, offering views of the Yarra River and Melbourne's skyline, great for a challenging run.",
+      image: "roures/kingspark.jpg"
     },
     {
       address: "St Kilda Beach, Melbourne, VIC",
       name: "St Kilda to Elwood",
       distance: 5.5,
-      description: "A coastal run from St Kilda to Elwood, featuring sandy beaches, ocean views, and a lively atmosphere with cafes and parks along the way."
+      description: "A coastal run from St Kilda to Elwood, featuring sandy beaches, ocean views, and a lively atmosphere with cafes and parks along the way.",
+      image: "routes/ocean.jpg"
     },
     {
       address: "Capital City Trail, Melbourne, VIC",
       name: "Capital City Trail",
       distance: 29.0,
-      description: "A longer route that circles central Melbourne, offering diverse scenery including riverside paths, parks, and urban landscapes."
+      description: "A longer route that circles central Melbourne, offering diverse scenery including riverside paths, parks, and urban landscapes.",
+      image: "routes/trail.jpg"
     },
     {
       address: "Brighton Beach, Melbourne, VIC",
@@ -308,13 +314,15 @@ Route.create!(
       address: "Docklands, Melbourne, VIC",
       name: "Docklands Waterfront",
       distance: 3.0,
-      description: "A modern run along the Docklands Waterfront, offering views of the marina, modern architecture, and public art installations."
+      description: "A modern run along the Docklands Waterfront, offering views of the marina, modern architecture, and public art installations.",
+      image: "routes/melbourne.jpg"
     },
     {
       address: "Fitzroy Gardens, Melbourne, VIC",
       name: "Fitzroy Gardens",
       distance: 2.5,
-      description: "A picturesque route through the historic Fitzroy Gardens, with well-kept paths, beautiful trees, and charming garden features."
+      description: "A picturesque route through the historic Fitzroy Gardens, with well-kept paths, beautiful trees, and charming garden features.",
+      image: "routes/melbourne.jpg"
     },
     {
       address: "Kings Park, Perth, WA",
@@ -356,7 +364,7 @@ Route.create!(
       name: "Matilda Bay to UWA",
       distance: 3.0,
       description: "A serene run along the Swan River, passing by Matilda Bay and the University of Western Australia, with peaceful water views and shaded paths.",
-      image: "routes/perth.jpg"w
+      image: "routes/perth.jpg"
     },
     {
       address: "Lake Monger, Perth, WA",
