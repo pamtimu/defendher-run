@@ -1,0 +1,19 @@
+.chatroom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+
+.chatroom-header img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.chatroom-header h2 {
+  margin-bottom: 0px;
+}
