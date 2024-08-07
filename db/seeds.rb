@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'faker'
+require 'open-uri'
+
 
 puts "🗑️ Destroying all saved routes..."
 SavedRoute.destroy_all
@@ -939,9 +941,10 @@ User.create!(
 
 
 puts "Creating users..."
+users = []
 5.times do
-  User.create!(
-    first_name: Faker::Name.first_name,
+  users << User.new(
+    first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: "password",
@@ -949,6 +952,10 @@ puts "Creating users..."
   )
 end
 
+users.each_with_index do |user, index|
+  user.photo.attach(io: File.open("app/assets/images/users/user#{index}.jpg"), filename: "user#{index}.jpg", content_type: "image/jpg")
+  user.save!
+end
 
 puts "Creating chatrooms..."
 Chatroom.create!(
