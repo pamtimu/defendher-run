@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  #validates :category, inclusion: { in: ["Beginner", "Intermediate", "Novice", "Marathon", "Athlete"] }
   has_many :chatrooms
   has_many :messages
   has_many :friendships
