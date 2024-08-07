@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  get "/saved_routes", to: "pages#saved_routes"
+  get "/saved_routes", to: "pages#saved_routes", as: :saved_routes
   get "/updates", to: "pages#updates"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :routes, only: [:index, :show]
+  resources :routes, only: [:index, :show] do
+    member do
+      get :share, to: "routes#share", as: :share
+    end
+  end
 
   resources :users, only: [:show] do
     resources :chatrooms, only: [:create]

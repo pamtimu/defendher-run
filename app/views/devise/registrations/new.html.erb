@@ -4,6 +4,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :address %>
+    <%= f.input :state %>
+    <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 100, end_year: Date.today.year - 18 %>
+    <%= f.input :running_level, collection: ["Beginner", "Intermediate", "Novice", "Marathon", "Athlete"], prompt: "Select a category" %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
