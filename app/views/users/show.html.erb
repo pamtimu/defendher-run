@@ -6,7 +6,8 @@
   <% end %>
   <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-  <h4><%= @user.email %></h4>
+  <h4><%= Time.now.year - @user.date_of_birth.year %> years old</h4>
+  <h4><%= @user.state %></h4>
   <% if current_user.id != @user.id %>
     <div class="actions">
       <%= link_to("", user_chatrooms_path(@user), data: { turbo_method: :post }, class: "fa-solid fa-message") %>
