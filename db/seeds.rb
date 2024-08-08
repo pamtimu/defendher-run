@@ -943,7 +943,7 @@ User.create!(
 puts "Creating users..."
 users = []
 5.times do
-  User.create!(
+  users << User.new(
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
