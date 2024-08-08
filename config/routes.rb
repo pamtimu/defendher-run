@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/saved_routes", to: "pages#saved_routes", as: :saved_routes
   get "/updates", to: "pages#updates"
+  get "suggested_friends", to: "pages#suggested_friends"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :routes, only: [:index, :show] do
