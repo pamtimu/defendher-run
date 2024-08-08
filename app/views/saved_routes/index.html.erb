@@ -1,0 +1,14 @@
+<h2>Your Saved Routes</h2>
+<div class="cards">
+  <% @saved_routes.each do |saved_route| %>
+    <div class="card-trip">
+      <%= image_tag saved_route.route.image, alt: "Trip Image" %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= saved_route.route.name %></h2>
+          <p><%= saved_route.route.description %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
