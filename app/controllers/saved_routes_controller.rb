@@ -12,4 +12,10 @@ class SavedRoutesController < ApplicationController
   def index
     @saved_routes = current_user.saved_routes
   end
+
+  def destroy
+    @saved_route = SavedRoute.find(params[:id])
+    @saved_route.destroy
+    redirect_to saved_routes_path
+  end
 end

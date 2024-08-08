@@ -8,6 +8,9 @@
           <h2><%= saved_route.route.name %></h2>
           <p><%= saved_route.route.description %></p>
         </div>
+        <%= link_to("delete", saved_route_path(saved_route),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete your route?"})
+        %>
       </div>
     </div>
   <% end %>
