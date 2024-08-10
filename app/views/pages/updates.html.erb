@@ -2,54 +2,39 @@
   <h1>Notifications</h1>
 </div>
 
-<%= link_to "some_path" do %>
+<% @messages.each do |message| %>
+  <%= link_to "some_path" do %>
     <div class="d-flex align-items-center" id="button1">
-        <div>
-            <h3 id="alert-type">New Message</h3>
-            <div class="d-flex">
-                <div>  
-                    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" id="profile">
-                </div>
-                <div>
-                    <p class="p1">Tom Mc'Pickle</p>
-                    <p class="p2">text...</p>
-                </div>
-            </div>
+      <div>
+        <h3 id="alert-type">New Message</h3>
+        <div class="d-flex">
+          <div>  
+            <%= cl_image_tag(message.user.photo.key, id: "profile") %>
+          </div>
+          <div>
+            <p class="p1"><%= message.user.first_name  %> <%= message.user.last_name  %></p>
+            <p class="p2"><%= message.content  %></p>
+          </div>
         </div>
+      </div>
     </div>
+  <% end %>
 <% end %>
 
-<%= link_to "some_path" do %>
-    <div class="d-flex align-items-center" id="button1">
-        <div>
-            <h3 id="alert-type">New Message</h3>
-            <div class="d-flex">
-                <div>  
-                    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" id="profile">
-                </div>
-                <div>
-                    <p class="p1">Tom Mc'Pickle</p>
-                    <p class="p2">text...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-<% end %>
 
-<%= link_to "some_path" do %>
+<% @friendships.each do |friendship| %>
+  <%= link_to "some_path" do %>
     <div class="d-flex align-items-center" id="button1">
-        <div>
-            <h3 id="alert-type">New Message</h3>
-            <div class="d-flex">
-                <div>  
-                    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" id="profile">
-                </div>
-                <div>
-                    <p class="p1">Tom Mc'Pickle</p>
-                    <p class="p2">text...</p>
-                </div>
-            </div>
+      <div>
+        <h3 id="alert-type"> <%= friendship.accepted %> </h3>
+        <div class="d-flex">
+          <div>  
+            <%= cl_image_tag(friendship.user_two.photo.key, id: "profile") %>
+          </div>
+          <p class="p1"> <%= friendship.user_two.first_name %> <%= friendship.user_two.last_name %> </p>
         </div>
+      </div>
     </div>
+  <% end %>
 <% end %>
 
