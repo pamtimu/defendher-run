@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :routes, only: [:index, :show] do
     member do
-      get :share, to: "routes#share", as: :share
+    get 'share', to: 'share_routes#share'
+    post 'share_send', to: 'share_routes#share_send'
     end
     resources :saved_routes, only: [:create]
   end

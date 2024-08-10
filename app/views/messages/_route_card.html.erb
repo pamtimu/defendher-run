@@ -1,0 +1,16 @@
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag route.image, alt: "#{route.name} image", class: "img-fluid rounded-start" %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= route.name %></h5>
+        <p class="card-text">Address: <%= route.address %></p>
+        <p class="card-text">Distance: <%= route.distance %> km</p>
+        <p class="card-text"><%= route.description %></p>
+        <a href="<%= route_path(route) %>" class="btn btn-primary">View Route</a>
+      </div>
+    </div>
+  </div>
+</div>

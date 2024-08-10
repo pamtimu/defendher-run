@@ -28,10 +28,6 @@ before_action :set_route, only: [:show]
     @routes = current_user.routes
   end
 
-  def share
-    @chatrooms = current_user.chatrooms
-  end
-
   private
 
   def route_params

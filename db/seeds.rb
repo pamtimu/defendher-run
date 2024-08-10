@@ -937,7 +937,12 @@ user_one = User.create!(
   first_name: "Admin",
   last_name: "User",
   email: "admin@admin.com",
-  password: "123456"
+  password: "123456",
+  date_of_birth: Faker::Date.birthday(
+      min_age: 18,
+      max_age: 65
+    ),
+  running_level: "Athlete"
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/163466371?v=4")
