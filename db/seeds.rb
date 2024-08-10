@@ -729,8 +729,7 @@ Route.create!(
       image: "routes/trail.jpg",
       latitude: -34.9210,
       longitude: 138.6014
-    }
-    ,
+    },
     {
       address: "Bonython Park, Adelaide, SA",
       name: "Bonython Park Loop",
