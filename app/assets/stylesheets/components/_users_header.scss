@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  i {
+    font-size: 100px;
+    color: $green;
+    margin-bottom: 20px;
+  }
   .logout {
     display: flex;
     justify-content: end;

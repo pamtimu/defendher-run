@@ -4,8 +4,12 @@
     <%= link_to("Logout", destroy_user_session_path, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }) %>
   </div>
   <% end %>
-  <%= cl_image_tag(@user.photo.key, class: "avatar-large", width: 56, height: 56) %>
-  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  <% if @user.photo.key %>
+    <%= cl_image_tag(@user.photo.key, class: "avatar-large", width: 56, height: 56) %>
+  <% else %>
+    <i class="fa-solid fa-user"></i>
+  <% end %>
+  <h2><%= @user.first_name %> <%= @user.last_name %></h2>
   <h4><%= Time.now.year - @user.date_of_birth.year %> years old</h4>
   <h4><%= @user.running_level %> Runner</h4>
   <h4><%= @user.state %></h4>
