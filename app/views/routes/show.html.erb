@@ -12,8 +12,10 @@
 <div class="text-center">
   <%= link_to 'All Routes', routes_path, class: 'btn btn-success' %>
   <%= link_to 'Save Route', route_saved_routes_path(@route), data: { turbo_method: :post },class: 'btn btn-success' %>
-  <%= link_to 'Share', share_route_path , class: 'btn btn-success' %>
+  <%= link_to 'Share', share_route_path(@route) , class: 'btn btn-success' %>
 </div>
+
+<%= render partial: 'messages/route_card', locals: { route: @route } %>
 
   <div style="width: 100%; height: 600px;"
   data-controller="map"

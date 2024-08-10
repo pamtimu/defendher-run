@@ -8,8 +8,14 @@
   </div>
   <div class="messages"  data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
+    <% if message.message_type == "route_share" %>
+      <% route_id = message.content.split("/").last %>
+      <% route = Route.find(route_id) %>
+      <%= render partial: 'messages/route_card', locals: { route: route } %>
+    <% else %>
       <%= render "messages/message", message: message %>
     <% end %>
+  <% end %>
   </div>
 
   <%= simple_form_for [@chatroom, @message],
