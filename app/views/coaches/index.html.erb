@@ -10,6 +10,7 @@
           <p class="card-text">Duration/Date: <%= coach.duration %></p>
           <p class="card-text">Race/Goal Distance: <%= coach.distance %></p>
           <%= link_to 'View Program', coach_path(coach), class: 'btn btn-success' %>
+          <%= link_to 'Delete Program', coach_path(coach),class: 'btn btn-success', data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete your route?"} %>
         </div>
       </div>
     </div>

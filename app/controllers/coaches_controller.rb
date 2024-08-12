@@ -1,5 +1,5 @@
 class CoachesController < ApplicationController
- before_action :find_coach, only: [:show, :save_program]
+ before_action :find_coach, only: [:show, :save_program, :destroy]
   def index
     @coaches = current_user.coaches.where.not(program_content: [nil, ''])
   end
@@ -44,6 +44,11 @@ class CoachesController < ApplicationController
     else
       redirect_to @coach, alert: 'This program is already saved.'
     end
+  end
+
+  def destroy
+    @coach.destroy
+    redirect_to coaches_path, notice: 'Training program deleted successfully.'
   end
 
  private
