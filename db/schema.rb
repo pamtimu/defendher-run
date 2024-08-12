@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_10_040230) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_11_094242) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_10_040230) do
     t.datetime "updated_at", null: false
     t.index ["user_one_id"], name: "index_chatrooms_on_user_one_id"
     t.index ["user_two_id"], name: "index_chatrooms_on_user_two_id"
+  end
+
+  create_table "coaches", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "distance"
+    t.string "duration"
   end
 
   create_table "friendships", force: :cascade do |t|

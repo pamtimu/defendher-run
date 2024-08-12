@@ -1,0 +1,24 @@
+<h2 class="text-center"><strong>Your Training Program:</strong></h2>
+<h4 class="text-center">Your only competition is yourself. Keep pushing!</h4>
+
+<% if @program.present? %>
+  <ul>
+    <% @program.split("\n\n").each_with_index do |section, index| %>
+      <% first_line, *rest_of_lines = section.split("\n") %>
+      <li>
+        <% if index == 0 %>
+          <strong><%= first_line %></strong>
+        <% else %>
+          <p><strong><%= first_line %></strong></p>
+        <% end %>
+        <ul>
+          <% rest_of_lines.each do |line| %>
+            <li><%= line %></li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No training program available at the moment. Please try again later.</p>
+<% end %>

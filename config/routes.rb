@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :saved_routes, except: [:update, :edit, :new, :create]
 
+  resources :coaches, only: [ :new, :create, :show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :routes, only: [:index, :show] do

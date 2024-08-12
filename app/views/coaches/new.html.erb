@@ -1,0 +1,8 @@
+<h2 style="text-align: center;"><strong>Defendher Run AI Coach</strong></h2>
+<h4 style="text-align: center;">Create your training program</h4>
+
+<%= simple_form_for (@coach) do |f| %>
+  <%= f.input :duration, label: 'Goal/Race Date:', hint: 'When is your race/goal event? Date', required: true %>
+  <%= f.input :distance, label: 'Race Distance', hint: 'How many km/miles is your race/goal?', required: true %>
+  <%= f.button :submit, 'Create Training Program', class: 'btn btn-success' %>
+<% end %>
