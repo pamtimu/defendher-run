@@ -19,6 +19,16 @@
       </li>
     <% end %>
   </ul>
+
+  <% if @coach.program_content.blank? %>
+    <%= form_with url: save_program_coach_path(@coach), method: :post do %>
+      <%= hidden_field_tag :program_content, @program %>
+      <%= submit_tag "Save Training Program", class: "btn btn-success" %>
+    <% end %>
+  <% else %>
+    <p class="text-center text-success"><strong>This program is already saved.</strong></p>
+  <% end %>
 <% else %>
   <p>No training program available at the moment. Please try again later.</p>
 <% end %>
+

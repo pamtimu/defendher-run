@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_11_094242) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_12_225907) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_11_094242) do
     t.datetime "updated_at", null: false
     t.string "distance"
     t.string "duration"
+    t.text "program_content"
+    t.bigint "user_id"
+    t.string "name"
+    t.index ["user_id"], name: "index_coaches_on_user_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -140,6 +144,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_11_094242) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chatrooms", "users", column: "user_one_id"
   add_foreign_key "chatrooms", "users", column: "user_two_id"
+  add_foreign_key "coaches", "users"
   add_foreign_key "friendships", "users", column: "user_one_id"
   add_foreign_key "friendships", "users", column: "user_two_id"
   add_foreign_key "messages", "chatrooms"
