@@ -1,0 +1,9 @@
+<h2>Share with a friend!</h2>
+
+<%= form_with url: share_send_route_path, method: :post, local: true do %>
+  <div class="form-group">
+    <%= label_tag :user_id, "Select a Friend:" %>
+    <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :first_name, :last_name), prompt: "Choose a friend", class: "form-control", required: true %>
+  </div>
+  <%= submit_tag "Share", class: "btn btn-primary" %>
+<% end %>
