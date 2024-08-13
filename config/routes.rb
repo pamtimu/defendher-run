@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   resources :saved_routes, except: [:update, :edit, :new, :create]
   resources :friendships
 
+  resources :coaches do
+    member do
+      post 'save_program'
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :routes, only: [:index, :show] do

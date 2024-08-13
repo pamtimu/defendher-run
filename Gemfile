@@ -54,7 +54,7 @@ gem "cloudinary"
 
 gem "geocoder"
 gem "faker"
-
+gem "ruby-openai"
 
 
 group :development, :test do

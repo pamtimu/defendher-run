@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   #validates :category, inclusion: { in: ["Beginner", "Intermediate", "Novice", "Marathon", "Athlete"] }
   has_many :chatrooms
+  has_many :coaches
   has_many :messages
   has_many :friendships
 
