@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
-    
+    @coaches = current_user.coaches.where.not(program_content: [nil, ''])
   end
 
   private

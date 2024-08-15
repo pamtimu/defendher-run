@@ -47,3 +47,25 @@
       </div>
     </div>
 </div>
+
+<h2 style="text-align: center;"><strong>Your Training Programs:</strong></h2>
+
+<div class="row">
+  <% if @coaches.any? %>
+  <% @coaches.each do |coach| %>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title"><%= coach.name %></h5>
+          <p class="card-text">Duration/Date: <%= coach.duration %></p>
+          <p class="card-text">Race/Goal Distance: <%= coach.distance %></p>
+          <%= link_to 'View Program', coach_path(coach), class: 'btn btn-success' %>
+          <%= link_to 'Delete Program', coach_path(coach),class: 'btn btn-success', data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete your route?"} %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+  <% else %>
+    <p>No training programs available at the moment. Please try again later.</p>
+<%end%>

@@ -1603,8 +1603,7 @@ Route.create!(
       image: "routes/trail.jpg",
       latitude: -34.9210,
       longitude: 138.6014
-    }
-    ,
+    },
     {
       address: "Bonython Park, Adelaide, SA",
       name: "Bonython Park Loop",
@@ -1828,7 +1827,11 @@ user_two = User.create!(
   last_name: "User2",
   email: "admin@admin2.com",
   password: "123456",
-  accepted: 1
+  date_of_birth: Faker::Date.birthday(
+      min_age: 18,
+      max_age: 65
+    ),
+  running_level: "Athlete"
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/161913002?v=4")
@@ -1897,10 +1900,10 @@ users.each_with_index do |user, index|
   user.save!
 end
 
-Chatroom.create!(
-  user_one: User.all.sample.id,
-  user_two: User.all.sample.id
-)
+# Chatroom.create!(
+#   user_one: User.all.sample.id,
+#   user_two: User.all.sample.id
+# )
 
 Route.all.each do |route|
   saved_route = SavedRoute.new()
@@ -1911,11 +1914,11 @@ end
 
 
 
-friendship_one = Friendship.create!(
-  accepted: false,
-  user_one: user_one,
-  user_two: user_two
-)
+# friendship_one = Friendship.create!(
+#   accepted: 0,
+#   user_one: user_one,
+#   user_two: user_two
+# )
 
 
 puts "✅ Finished!"
