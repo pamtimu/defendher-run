@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update_biography]
 
   def show
+    
   end
 
   def update_biography
