@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show] do
+    member do
+      patch :update_biography, to: "users#update_biography", as: :update_biography
+    end
     resources :chatrooms, only: [:create]
   end
 
