@@ -10,6 +10,11 @@
 require 'faker'
 require 'open-uri'
 
+puts "🗑️ Destroying all coaches..."
+Coach.destroy_all
+
+puts "🗑️ Destroying all users..."
+User.destroy_all
 
 puts "🗑️ Destroying all saved routes..."
 SavedRoute.destroy_all
@@ -20,9 +25,6 @@ Route.destroy_all
 
 puts "🗑️ Destroying all chatrooms..."
 Chatroom.destroy_all
-
-puts "🗑️ Destroying all users..."
-User.destroy_all
 
 puts 'Finding routes in Australia...'
 Route.create!(
@@ -1806,7 +1808,7 @@ Route.create!(
   ]
 )
 
-user_one = User.create!(
+admin = User.create!(
   first_name: "Admin",
   last_name: "User",
   email: "admin@admin.com",
@@ -1819,58 +1821,62 @@ user_one = User.create!(
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/163466371?v=4")
-user_one.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user_one.save
+admin.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+admin.save
 
-user_two = User.create!(
+admin2 = User.create!(
   first_name: "Admin2",
   last_name: "User2",
   email: "admin@admin2.com",
   password: "123456",
-  accepted: 1
+  date_of_birth: Faker::Date.birthday(
+      min_age: 18,
+      max_age: 65
+    ),
+  running_level: "Athlete"
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/161913002?v=4")
-user_two.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user_two.save
+admin2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+admin2.save
 
 
 
-puts 'Creating chatrooms...'
-chatroom = Chatroom.create!(
-  user_one: user_one,
-  user_two: user_two
-)
+# puts 'Creating chatrooms...'
+# chatroom = Chatroom.create!(
+#   user_one: user_one,
+#   user_two: user_two
+# )
 
-Message.create!(
-  chatroom: chatroom,
-  user: user_two,
-  content: "yoh yoh......"
-)
+# Message.create!(
+#   chatroom: chatroom,
+#   user: user_two,
+#   content: "yoh yoh......"
+# )
 
-Message.create!(
-  chatroom: chatroom,
-  user: user_two,
-  content: "hey......"
-)
+# Message.create!(
+#   chatroom: chatroom,
+#   user: user_two,
+#   content: "hey......"
+# )
 
-Message.create!(
-  chatroom: chatroom,
-  user: user_two,
-  content: "what???......"
-)
+# Message.create!(
+#   chatroom: chatroom,
+#   user: user_two,
+#   content: "what???......"
+# )
 
-Message.create!(
-  chatroom: chatroom,
-  user: user_two,
-  content: "You......"
-)
+# Message.create!(
+#   chatroom: chatroom,
+#   user: user_two,
+#   content: "You......"
+# )
 
-Message.create!(
-  chatroom: chatroom,
-  user: user_two,
-  content: "What the......"
-)
+# Message.create!(
+#   chatroom: chatroom,
+#   user: user_two,
+#   content: "What the......"
+# )
 
 
 puts "Creating users..."
@@ -1896,10 +1902,10 @@ users.each_with_index do |user, index|
   user.save!
 end
 
-Chatroom.create!(
-  user_one: User.all.sample.id,
-  user_two: User.all.sample.id
-)
+# Chatroom.create!(
+#   user_one: User.all.sample.id,
+#   user_two: User.all.sample.id
+# )
 
 Route.all.each do |route|
   saved_route = SavedRoute.new()
@@ -1910,11 +1916,11 @@ end
 
 
 
-friendship_one = Friendship.create!(
-  accepted: false,
-  user_one: user_one,
-  user_two: user_two
-)
+# friendship_one = Friendship.create!(
+#   accepted: 0,
+#   user_one: user_one,
+#   user_two: user_two
+# )
 
 
 puts "✅ Finished!"

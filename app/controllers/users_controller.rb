@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update_biography]
 
   def show
-    
+    @coaches = current_user.coaches.where.not(program_content: [nil, ''])
   end
 
   def update_biography
