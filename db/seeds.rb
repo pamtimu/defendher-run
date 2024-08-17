@@ -14,11 +14,12 @@ require "date"
 puts "🗑️ Destroying all coaches..."
 Coach.destroy_all
 
+puts "🗑️ Destroying all saved routes..."
+SavedRoute.destroy_all
+
 puts "🗑️ Destroying all users..."
 User.destroy_all
 
-puts "🗑️ Destroying all saved routes..."
-SavedRoute.destroy_all
 
 puts "🗑️ Destroying all routes..."
 Route.destroy_all
@@ -1901,10 +1902,10 @@ users.each_with_index do |user, index|
   user.save!
 end
 
-Chatroom.create!(
-  user_one: user_one,
-  user_two: user_two
-)
+#Chatroom.create!(
+#  user_one: user_one,
+#  user_two: user_two
+#)
 
 # Chatroom.create!(
 #   user_one: User.all.sample.id,
@@ -1927,17 +1928,17 @@ end
 # )
 
 
-users.each do |user|
-Friendship.create!(
-  user_one: user_one,
-  user_two: user,
-  accepted: 2
-)
+#users.each do |user|
+#Friendship.create!(
+#  user_one: User.all.sample.id,
+#  user_two: User.all.sample.id,
+#  accepted: 2
+#)
 #   accepted: 0,
 #   user_one: user_one,
 #   user_two: user_two
 # )
-end
+#end
 
 
 puts "✅ Finished!"
