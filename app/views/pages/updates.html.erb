@@ -8,7 +8,7 @@
       <div>
         <h3 id="alert-type">New Message</h3>
         <div class="d-flex">
-          <div>  
+          <div>
             <%= cl_image_tag(message.user.photo.key, id: "profile") %>
           </div>
           <div>
@@ -28,7 +28,7 @@
       <div>
         <h3 id="alert-type"> <%= friendship.accepted %> </h3>
         <div class="d-flex">
-          <div>  
+          <div>
             <%= cl_image_tag(friendship.user_two.photo.key, id: "profile") %>
           </div>
           <p class="p1"> <%= friendship.user_two.first_name %> <%= friendship.user_two.last_name %> </p>
@@ -37,4 +37,3 @@
     </div>
   <% end %>
 <% end %>
-
