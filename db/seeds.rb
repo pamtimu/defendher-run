@@ -9,6 +9,7 @@
 #   end
 require 'faker'
 require 'open-uri'
+require "date"
 
 puts "🗑️ Destroying all coaches..."
 Coach.destroy_all
@@ -1813,11 +1814,10 @@ admin = User.create!(
   last_name: "User",
   email: "admin@admin.com",
   password: "123456",
-  date_of_birth: Faker::Date.birthday(
-      min_age: 18,
-      max_age: 65
-    ),
-  running_level: "Athlete"
+  date_of_birth: Date.new(1990, 1, 13),
+  running_level: "Athlete",
+  address: "12 Bro street",
+  state: "VIC"
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/163466371?v=4")
@@ -1829,11 +1829,10 @@ admin2 = User.create!(
   last_name: "User2",
   email: "admin@admin2.com",
   password: "123456",
-  date_of_birth: Faker::Date.birthday(
-      min_age: 18,
-      max_age: 65
-    ),
-  running_level: "Athlete"
+  date_of_birth: Date.new(1990, 1, 13),
+  running_level: "Athlete",
+  address: "1 steele street",
+  state: "VIC"
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/161913002?v=4")
@@ -1902,6 +1901,11 @@ users.each_with_index do |user, index|
   user.save!
 end
 
+Chatroom.create!(
+  user_one: user_one,
+  user_two: user_two
+)
+
 # Chatroom.create!(
 #   user_one: User.all.sample.id,
 #   user_two: User.all.sample.id
@@ -1917,10 +1921,23 @@ end
 
 
 # friendship_one = Friendship.create!(
+#   accepted: false,
+#   user_one: user_one,
+#   user_two: user_two
+# )
+
+
+users.each do |user|
+Friendship.create!(
+  user_one: user_one,
+  user_two: user,
+  accepted: 2
+)
 #   accepted: 0,
 #   user_one: user_one,
 #   user_two: user_two
 # )
+end
 
 
 puts "✅ Finished!"

@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update_biography]
 
   def show
+    @suggested_friends = User.where.not(id: current_user.id)
+    @new_friendship = Friendship.new
     @coaches = current_user.coaches.where.not(program_content: [nil, ''])
   end
 
