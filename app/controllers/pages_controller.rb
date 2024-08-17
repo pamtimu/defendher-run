@@ -1,7 +1,16 @@
 class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [ :home ]
-  
+
   def home
+    @routes = Route.all
+    @markers = @routes.geocoded.map do |route|
+      {
+        lat: route.latitude,
+        lng: route.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {route: route}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def updates
@@ -16,5 +25,9 @@ class PagesController < ApplicationController
 
   def saved_routes
     @routes = current_user.routes
+  end
+
+  def suggested_friends
+    @users = User.all
   end
 end

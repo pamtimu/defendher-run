@@ -3,7 +3,10 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgb(237, 178, 188);
-  height: 50px;
+  height: 70px;
+  width: 100%;
+  position:sticky;
+  top: 0;
   .logo-title {
     height: 100%;
     display: flex;

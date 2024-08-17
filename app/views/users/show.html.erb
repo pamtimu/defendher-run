@@ -31,44 +31,48 @@
       <%= link_to("", chatrooms_path, class: "fa-solid fa-user-group") %>
     </div>
   <% end %>
-</div>
-<% if current_user.id == @user.id %>
-  <h2 class="my-3">Your Routes</h2>
-<div class="cards">
-  <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  <% if current_user.id == @user.id %>
+    <div class="biography" id=<%= @user.id %> data-controller="biography">
+      <div class="action">
+        <i class="fa-solid fa-pencil"></i>
+      </div>
+      <div class="text" data-action="click->biography#modifyBiography" data-biography-target="text">
+        <%= @user.biography %>
+      </div>
+      <div class="form d-none" data-biography-target="form">
+        <%= simple_form_for @user, url: update_biography_user_path(@user), action: "submit->insert-in-list#saveText" do |f| %>
+          <%= f.input :biography, as: :text %>
+          <%= f.button :submit, "Save" %>
+        <% end %>
       </div>
     </div>
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  <% else %>
+    <div class="biography">
+      <div class="text">
+        <%= @user.biography %>
       </div>
     </div>
+  <% end %>
 </div>
-<% end %>
-<% if current_user.id == @user.id %>
-  <h1>Suggested Friends</h1>
-  <ul>
-      <% @suggested_friends.each do |friend| %>
-      <%= link_to user_path(friend.id) do %>
-      <li>
-        <%= friend.first_name %>
-        <%= friend.last_name %>
-      </li>
-      <% end %>
-      <% end %>
-  </ul>
-<% end %>
+
+<h2 style="text-align: center;"><strong>Your Training Programs:</strong></h2>
+
+<div class="row">
+  <% if @coaches.any? %>
+  <% @coaches.each do |coach| %>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title"><%= coach.name %></h5>
+          <p class="card-text">Duration/Date: <%= coach.duration %></p>
+          <p class="card-text">Race/Goal Distance: <%= coach.distance %></p>
+          <%= link_to 'View Program', coach_path(coach), class: 'btn btn-success' %>
+          <%= link_to 'Delete Program', coach_path(coach),class: 'btn btn-success', data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete your route?"} %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+  <% else %>
+    <p>No training programs available at the moment. Please try again later.</p>
+<%end%>
