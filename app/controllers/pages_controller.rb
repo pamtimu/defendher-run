@@ -27,14 +27,7 @@ class PagesController < ApplicationController
     @routes = current_user.routes
   end
 
-  def friendships
-    @friendships = Friendship.where(user_one: current_user) + Friendship.where(user_two: current_user)
-    @friendships.map do |friendship|
-      if friendship.user_one == current_user
-        @friend = friendship.user_two
-      else
-        @friend = friendship.user_one
-      end
-    end
+  def suggested_friends
+    @users = User.all
   end
 end

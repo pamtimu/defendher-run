@@ -8,6 +8,11 @@
   </div>
   <div class="d-flex flex-column justify-content-center">
   </div>
+
+  <div class="d-flex justify-content-center">
+    <%= link_to "Find a Running Buddy", suggested_friends_path, class: "btn btn-success" %>
+  </div>
+
 <h3>Explore Running Routes:</h3>
 <div class="container">
   <% @routes.take(3).each do |route| %>
@@ -32,6 +37,9 @@
     </div>
   <% end %>
 </div>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "View All Routes", routes_path, class: "btn btn-success" %>
 
 </div>
 

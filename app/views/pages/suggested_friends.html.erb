@@ -1,0 +1,20 @@
+<h1>Run Safer, Together</h1>
+  <h4>Find a friend to run with!</h4>
+  <div class="container">
+    <% @users.each do |user| %>
+      <%= link_to user_path(user) do %>
+        <div class="card-product">
+          <% if user.photo.key %>
+            <%= cl_image_tag(user.photo.key, class: "avatar-large", width: 56, height: 56) %>
+          <% else %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Default Profile Picture"/>
+          <% end %>
+
+          <div class="card-product-infos">
+            <h2><%= user.first_name %> <%= user.last_name %></h2>
+            <p><%= user.running_level %> Runner</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
