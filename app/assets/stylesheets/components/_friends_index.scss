@@ -1,0 +1,37 @@
+.friends {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    background: white;
+    padding: 8px 8px;
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-left: 2px;
+    margin-right: 2px;
+    box-shadow: rgba(0, 0, 0, 0.60) 0px 5px 5px;
+    width: 100%;
+    font-weight: bold;
+  }
+
+.container1 h1 {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+  
+#photo {
+    border-radius: 50px;
+    size: 5px;
+}
+
+.name {
+    margin-left: 25px;
+    color: black;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.friends:hover {
+    transform: scale(1.025);
+}

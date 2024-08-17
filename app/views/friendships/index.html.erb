@@ -1,11 +1,21 @@
-<div class="h1">Friendships index</div>
+<div class="container1">
+  <h1>Friends</h1>
+</div>
 
+<div class="container2">
     <% @friendships.each do |friend_id| %>
-    <%= link_to user_path(friend_id) do %>
-    <% user = User.find(friend_id) %>
-    
-    <h2><%= user.first_name %>
-    <%= user.last_name %></h2>
-  <% end %>
-<% end %>
-
+        <%= link_to user_path(friend_id) do %>
+        <div class="friends">
+        <div class="photo">
+            <% user = User.find(friend_id) %>
+            <%= cl_image_tag(user.photo.key, id: "profile") %>
+        </div>
+        <div class="name">
+            <% user = User.find(friend_id) %>
+            <h2><%= user.first_name %>
+            <%= user.last_name %></h2>
+        </div>
+        </div>
+        <% end %>
+    <% end %>
+</div>
