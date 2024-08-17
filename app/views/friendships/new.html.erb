@@ -1,0 +1,5 @@
+      <%= simple_form_for @friendship do |form| %>
+        <%= form.input :user_one_id, as: :hidden, input_html: { value: current_user.id } %>
+         <%= form.input :user_two_id, as: :integer, label: "Friend's User ID" %>
+        <%= form.button :submit, "Add Friend" %>
+      <% end %>

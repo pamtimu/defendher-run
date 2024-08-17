@@ -9,6 +9,7 @@
 #   end
 require 'faker'
 require 'open-uri'
+require "date"
 
 
 puts "🗑️ Destroying all saved routes..."
@@ -20,6 +21,9 @@ Route.destroy_all
 
 puts "🗑️ Destroying all chatrooms..."
 Chatroom.destroy_all
+
+puts "🗑️ Destroying all coaches..."
+Coach.destroy_all
 
 puts "🗑️ Destroying all users..."
 User.destroy_all
@@ -1603,8 +1607,7 @@ Route.create!(
       image: "routes/trail.jpg",
       latitude: -34.9210,
       longitude: 138.6014
-    }
-    ,
+    },
     {
       address: "Bonython Park, Adelaide, SA",
       name: "Bonython Park Loop",
@@ -1812,11 +1815,10 @@ user_one = User.create!(
   last_name: "User",
   email: "admin@admin.com",
   password: "123456",
-  date_of_birth: Faker::Date.birthday(
-      min_age: 18,
-      max_age: 65
-    ),
-  running_level: "Athlete"
+  date_of_birth: Date.new(1990, 1, 13),
+  running_level: "Athlete",
+  address: "12 Bro street",
+  state: "VIC"
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/163466371?v=4")
@@ -1828,7 +1830,10 @@ user_two = User.create!(
   last_name: "User2",
   email: "admin@admin2.com",
   password: "123456",
-  accepted: 1
+  date_of_birth: Date.new(1990, 1, 13),
+  running_level: "Athlete",
+  address: "1 steele street",
+  state: "VIC"
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/161913002?v=4")
@@ -1898,8 +1903,8 @@ users.each_with_index do |user, index|
 end
 
 Chatroom.create!(
-  user_one: User.all.sample.id,
-  user_two: User.all.sample.id
+  user_one: user_one,
+  user_two: user_two
 )
 
 Route.all.each do |route|
@@ -1911,11 +1916,21 @@ end
 
 
 
-friendship_one = Friendship.create!(
-  accepted: false,
+# friendship_one = Friendship.create!(
+#   accepted: false,
+#   user_one: user_one,
+#   user_two: user_two
+# )
+
+
+users.each do |user|
+Friendship.create!(
   user_one: user_one,
-  user_two: user_two
+  user_two: user,
+  accepted: 2
 )
+
+end
 
 
 puts "✅ Finished!"

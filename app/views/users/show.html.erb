@@ -16,13 +16,24 @@
   <% if current_user.id != @user.id %>
     <div class="actions">
       <%= link_to("", user_chatrooms_path(@user), data: { turbo_method: :post }, class: "fa-solid fa-message") %>
+  
+      
+      <%= simple_form_for @new_friendship do |form| %>
+        <%= form.input :user_one_id, as: :hidden, input_html: { value: current_user.id } %>
+        <%= form.input :user_two_id, as: :hidden, input_html: { value: @user.id } %>
+        <%= button_tag(type: 'submit', style: 'border-style: none') do %>
+        <i class="fa-solid fa-user-group"></i>
+        <% link_to  %>
+        <% end %>
+      <% end %>
+
+
       <%= link_to("", chatrooms_path, class: "fa-solid fa-user-group") %>
     </div>
   <% end %>
 </div>
 <% if current_user.id == @user.id %>
   <h2 class="my-3">Your Routes</h2>
-<% end %>
 <div class="cards">
   <div class="card-trip">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
@@ -47,3 +58,17 @@
       </div>
     </div>
 </div>
+<% end %>
+<% if current_user.id == @user.id %>
+  <h1>Suggested Friends</h1>
+  <ul>
+      <% @suggested_friends.each do |friend| %>
+      <%= link_to user_path(friend.id) do %>
+      <li>
+        <%= friend.first_name %>
+        <%= friend.last_name %>
+      </li>
+      <% end %>
+      <% end %>
+  </ul>
+<% end %>
