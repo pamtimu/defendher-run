@@ -1,4 +1,7 @@
 .messages {
   width: 100%;
-  min-height: calc(100vh - 66px);
+  min-height: calc(100vh - 300px);
+  p {
+    margin-top: 10px;
+  }
 }
