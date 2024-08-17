@@ -1,7 +1,7 @@
 <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div class="chatroom-header">
     <%= link_to(user_path(@user)) do %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= cl_image_tag(@chatroom.user_two.photo.key) %>
     <% end %>
     <h2><%= @chatroom.user_two.first_name %> <%= @chatroom.user_two.last_name %></h2>
     <%= link_to("", chatroom_path(@chatroom), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "fa-solid fa-trash ") %>
@@ -16,7 +16,7 @@
       <%= render "messages/message", message: message %>
     <% end %>
   <% end %>
-  </div>
+</div>
 
   <%= simple_form_for [@chatroom, @message],
     html: {class: "d-flex"} do |f|
@@ -28,5 +28,4 @@
     %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
-
 </div>
