@@ -5,7 +5,9 @@
   background-color: rgb(237, 178, 188);
   height: 70px;
   width: 100%;
-  position:fixed;
+  position:sticky;
+  z-index: 1000;
+  top: 0;
   .logo-title {
     height: 100%;
     display: flex;

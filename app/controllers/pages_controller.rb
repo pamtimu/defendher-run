@@ -2,6 +2,15 @@ class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    @routes = Route.all
+    @markers = @routes.geocoded.map do |route|
+      {
+        lat: route.latitude,
+        lng: route.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {route: route}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def updates
@@ -18,7 +27,7 @@ class PagesController < ApplicationController
     @routes = current_user.routes
   end
 
-  def suggested_friends
+  def friendships
     @friendships = Friendship.where(user_one: current_user) + Friendship.where(user_two: current_user)
     @friendships.map do |friendship|
       if friendship.user_one == current_user
