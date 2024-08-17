@@ -3,6 +3,9 @@ class PagesController < ApplicationController
 
   def home
     @routes = Route.all
+    if params[:query].present?
+      @searched_routes = @routes.search_by_name_and_address(params[:query])
+    end
     @markers = @routes.geocoded.map do |route|
       {
         lat: route.latitude,
