@@ -3,7 +3,7 @@
 </div>
 
 <% @messages.each do |message| %>
-  <%= link_to "some_path" do %>
+  <%= link_to chatroom_path(message.chatroom) do %>
     <div class="d-flex align-items-center" id="button1">
       <div>
         <h3 id="alert-type">New Message</h3>
