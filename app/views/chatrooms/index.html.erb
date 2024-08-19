@@ -4,7 +4,7 @@
     <% @chatrooms.each do |chatroom| %>
       <%= link_to(chatroom_path(chatroom)) do %>
         <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <%= cl_image_tag(chatroom.user_two.photo.key) %>
           <div class="card-product-infos">
             <h2><%= chatroom.user_two.first_name %></h2>
             <% if chatroom.messages.last %>
