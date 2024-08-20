@@ -21,8 +21,8 @@ class PagesController < ApplicationController
     @messages = @chatrooms.map do |chatroom|
       chatroom.messages.order(created_at: :desc).first
     end.compact
-      @friendships = Friendship.where(user_one: current_user)
-      @friendships.map do |friendship|
+    @friendships = Friendship.where(user_one: current_user)
+    @friendships.map do |friendship|
     end
   end
 
