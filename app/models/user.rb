@@ -27,4 +27,10 @@ class User < ApplicationRecord
     end
   end
 
+  def friendship_with(user)
+    friendships.find do |friendship|
+      friendship.users.sort == [self, user].sort
+    end
+  end
+
 end

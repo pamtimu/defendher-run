@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   get "suggested_friends", to: "pages#suggested_friends"
 
   resources :saved_routes, except: [:update, :edit, :new, :create]
-  resources :friendships, only: [:new, :create, :index]
+  resources :friendships, only: [:new, :create, :index] do
+    member do
+      patch :accept
+      patch :reject
+    end
+  end
 
   resources :coaches do
     member do
