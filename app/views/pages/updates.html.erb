@@ -2,6 +2,7 @@
   <h1>Notifications</h1>
 </div>
 
+
 <% if @messages.length != 0 || @friendships.lenght != 0 %>
   <div class="cards">
     <% @messages.each do |message| %>
@@ -11,6 +12,7 @@
           <div class="card-product-infos">
             <h2 class="message-updates">New message from <%= message.chatroom.user_two.first_name %></h2>
             <p><%= message.content %></p>
+
           </div>
         </div>
       <% end %>
