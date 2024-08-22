@@ -21,9 +21,7 @@ class PagesController < ApplicationController
     @messages = @chatrooms.map do |chatroom|
       chatroom.messages.includes(:chatroom).order(created_at: :desc).first
     end.compact
-    @friendships = current_user.friendships.select do |friendship|
-      friendship.accepted == "pending"
-    end
+    @friendships = Friendship.where(user_two: current_user, accepted: "pending")
   end
 
   def saved_routes
