@@ -2,7 +2,10 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
-    @user = @chatroom.user_two
+    @other_user = @chatroom.user_one == current_user ? @chatroom.user_two : @chatroom.user_one
+    @other_user.messages.each do |message|
+      message.update(seen: true) if message.chatroom == @chatroom
+    end
   end
 
   def create
@@ -21,7 +24,7 @@ class ChatroomsController < ApplicationController
   end
 
   def index
-    @chatrooms = Chatroom.where(user_one: current_user)
+    @chatrooms = Chatroom.where(user_one: current_user ) + Chatroom.where(user_two: current_user)
   end
 
   def destroy

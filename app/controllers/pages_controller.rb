@@ -23,6 +23,9 @@ class PagesController < ApplicationController
     end.compact
     @friendships = Friendship.where(user_two: current_user, accepted: "pending")
     @updates = (@messages + @friendships).sort_by { |update| update.created_at }.reverse
+
+    @unseen_messages = @messages.select { |message| message.seen == false && message.user.id != current_user.id }
+    
   end
 
   def saved_routes

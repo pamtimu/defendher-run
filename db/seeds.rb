@@ -11,11 +11,17 @@ require 'faker'
 require 'open-uri'
 require "date"
 
+puts "🗑️ Destroying all friendships... "
+Friendship.destroy_all
+
 puts "🗑️ Destroying all coaches..."
 Coach.destroy_all
 
 puts "🗑️ Destroying all saved routes..."
 SavedRoute.destroy_all
+
+puts "🗑️ Destroying all chatrooms..."
+Chatroom.destroy_all
 
 puts "🗑️ Destroying all users..."
 User.destroy_all
@@ -25,8 +31,6 @@ puts "🗑️ Destroying all routes..."
 Route.destroy_all
 
 
-puts "🗑️ Destroying all chatrooms..."
-Chatroom.destroy_all
 
 puts 'Finding routes in Australia...'
 Route.create!(
