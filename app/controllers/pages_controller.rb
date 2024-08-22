@@ -22,6 +22,7 @@ class PagesController < ApplicationController
       chatroom.messages.includes(:chatroom).order(created_at: :desc).first
     end.compact
     @friendships = Friendship.where(user_two: current_user, accepted: "pending")
+    @updates = (@messages + @friendships).sort_by { |update| update.created_at }.reverse
   end
 
   def saved_routes

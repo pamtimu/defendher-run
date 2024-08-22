@@ -24,7 +24,7 @@ class FriendshipsController < ApplicationController
       @friendship = Friendship.new(friendship_params)
       @friendship.accepted = 1
       if @friendship.save
-        flash[:notice] = "Friendship created successfully."
+        flash[:notice] = "Friend request sent!"
         redirect_to friendships_path
       end
     end

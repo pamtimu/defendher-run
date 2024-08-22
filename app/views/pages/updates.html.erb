@@ -1,51 +1,41 @@
-<div class="conatiner">
+<div class="container">
   <h1>Notifications</h1>
 </div>
 
-<% @messages.each do |message| %>
-  <%= link_to chatroom_path(message.chatroom) do %>
+<% @updates.each do |update| %>
+  <% if update.is_a?(Message) %>
+    <%= link_to chatroom_path(update.chatroom) do %>
+      <div class="d-flex align-items-center" id="button1">
+        <div>
+          <h3 id="alert-type">New Message</h3>
+          <div class="d-flex">
+            <div>
+              <%= cl_image_tag(update.user.photo.key, id: "profile") %>
+            </div>
+            <div>
+              <p class="p1"><%= update.user.first_name %> <%= update.user.last_name %></p>
+              <p class="p2"><%= update.content %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  <% elsif update.is_a?(Friendship) %>
     <div class="d-flex align-items-center" id="button1">
       <div>
-        <h3 id="alert-type">New Message</h3>
+        <h3 id="alert-type">Pending Friend Request</h3>
         <div class="d-flex">
           <div>
-            <%= cl_image_tag(message.user.photo.key, id: "profile") %>
+            <%= cl_image_tag(update.user_one.photo.key, id: "profile") %>
           </div>
-          <div>
-            <p class="p1"><%= message.user.first_name  %> <%= message.user.last_name  %></p>
-            <p class="p2"><%= message.content  %></p>
-          </div>
+          <p class="p1"><%= update.user_one.first_name %> <%= update.user_one.last_name %></p>
+        </div>
+        <div class="friendship-actions">
+          <%= link_to "Accept", accept_friendship_path(update), data: { turbo_method: :patch }, class: "btn btn-success" %>
+          <%= link_to "Reject", reject_friendship_path(update), data: { turbo_method: :patch }, class: "btn btn-danger" %>
         </div>
       </div>
     </div>
   <% end %>
-<% end %>
-
-
-<% @friendships.each do |friendship| %>
-  <div class="d-flex align-items-center" id="button1">
-    <div>
-      <h3 id="alert-type">
-        <% if friendship.accepted == 2 %>
-          Accepted
-        <% elsif friendship.accepted == 0 %>
-          Rejected
-        <% else %>
-          Pending friend Request
-        <% end %>
-      </h3>
-      <div class="d-flex">
-        <div>
-          <%= cl_image_tag(friendship.user_one.photo.key, id: "profile") %>
-        </div>
-        <p class="p1"><%= friendship.user_one.first_name %> <%= friendship.user_one.last_name %></p>
-      </div>
-      <% if friendship.accepted == "pending" %> <!-- Only show buttons for pending requests -->
-        <div class="friendship-actions">
-          <%= link_to "Accept", accept_friendship_path(friendship), data: { turbo_method: :patch }, class: "btn btn-success" %>
-          <%= link_to "Reject", reject_friendship_path(friendship), data: { turbo_method: :patch }, class: "btn btn-danger" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
 <% end %>
