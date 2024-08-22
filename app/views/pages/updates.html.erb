@@ -2,43 +2,39 @@
   <h1>Notifications</h1>
 </div>
 
-
-<% if @messages.length != 0 || @friendships.length != 0 %>
-  <div class="cards">
-    <% if @unseen_messages %>
-      <% @unseen_messages.each do |message| %>
-        <%= link_to(message.chatroom) do %>
-          <div class="card-product">
-            <% other_user = message.chatroom.user_one == current_user ? message.chatroom.user_two : message.chatroom.user_one %>
-             <% if other_user.photo.key %>
-              <%= cl_image_tag(other_user.photo.key) %>
-            <% else %>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-            <% end %>
-            <div class="card-product-infos">
-              <h2 class="message-updates">New message from <%= other_user.first_name %></h2>
-              <p><%= message.content %></p>
+<% @updates.each do |update| %>
+  <% if update.is_a?(Message) %>
+    <%= link_to chatroom_path(update.chatroom) do %>
+      <div class="d-flex align-items-center" id="button1">
+        <div>
+          <h3 id="alert-type">New Message</h3>
+          <div class="d-flex">
+            <div>
+              <%= cl_image_tag(update.user.photo.key, id: "profile") %>
+            </div>
+            <div>
+              <p class="p1"><%= update.user.first_name %> <%= update.user.last_name %></p>
+              <p class="p2"><%= update.content %></p>
             </div>
           </div>
-        <% end %>
-      <% end %>
+        </div>
+      </div>
     <% end %>
-  </div>
-  <% else %>
-    <p>You have no notifications yet</p>
-<% end %>
 
 
-<% @friendships.each do |friendship| %>
-  <%= link_to "some_path" do %>
+  <% elsif update.is_a?(Friendship) %>
     <div class="d-flex align-items-center" id="button1">
       <div>
-        <h3 id="alert-type"> <%= friendship.accepted %> </h3>
+        <h3 id="alert-type">Pending Friend Request</h3>
         <div class="d-flex">
           <div>
-            <%= cl_image_tag(friendship.user_two.photo.key, id: "profile") %>
+            <%= cl_image_tag(update.user_one.photo.key, id: "profile") %>
           </div>
-          <p class="p1"> <%= friendship.user_two.first_name %> <%= friendship.user_two.last_name %> </p>
+          <p class="p1"><%= update.user_one.first_name %> <%= update.user_one.last_name %></p>
+        </div>
+        <div class="friendship-actions">
+          <%= link_to "Accept", accept_friendship_path(update), data: { turbo_method: :patch }, class: "btn btn-success" %>
+          <%= link_to "Reject", reject_friendship_path(update), data: { turbo_method: :patch }, class: "btn btn-danger" %>
         </div>
       </div>
     </div>

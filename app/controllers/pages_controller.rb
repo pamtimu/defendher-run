@@ -21,10 +21,11 @@ class PagesController < ApplicationController
     @messages = @chatrooms.map do |chatroom|
       chatroom.messages.includes(:chatroom).order(created_at: :desc).first
     end.compact
+    @friendships = Friendship.where(user_two: current_user, accepted: "pending")
+    @updates = (@messages + @friendships).sort_by { |update| update.created_at }.reverse
+
     @unseen_messages = @messages.select { |message| message.seen == false && message.user.id != current_user.id }
-    @friendships = Friendship.where(user_one: current_user)
-    @friendships.map do |friendship|
-    end
+    
   end
 
   def saved_routes

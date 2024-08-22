@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 8px;
-    background: white;
+    background: pink;
     padding: 8px 8px;
     border-radius: 12px;
     margin-top: 20px;
@@ -17,7 +17,7 @@
     margin-left: 100px;
     margin-right: 100px;
 }
-  
+
 #photo {
     border-radius: 50px;
     size: 5px;
@@ -34,4 +34,10 @@ h2 {
 
 .friends:hover {
     transform: scale(1.025);
+}
+
+.name p {
+  font-family: 'Arial', sans-serif;
+  color: #777;
+  margin: 0;
 }

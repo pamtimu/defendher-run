@@ -16,22 +16,19 @@
   <% if current_user.id != @user.id %>
     <div class="actions">
       <%= link_to("", user_chatrooms_path(@user), data: { turbo_method: :post }, class: "fa-solid fa-message") %>
-  
-      
+
       <%= simple_form_for @new_friendship do |form| %>
         <%= form.input :user_one_id, as: :hidden, input_html: { value: current_user.id } %>
         <%= form.input :user_two_id, as: :hidden, input_html: { value: @user.id } %>
         <%= button_tag(type: 'submit', style: 'border-style: none') do %>
-        <i class="fa-solid fa-user-group"></i>
+        <i class="fa-solid fa-user-plus"></i>
         <% link_to  %>
         <% end %>
       <% end %>
-
-
-      <%= link_to("", chatrooms_path, class: "fa-solid fa-user-group") %>
     </div>
   <% end %>
   <% if current_user.id == @user.id %>
+    <%= link_to("", friendships_path, data: { turbo_method: :get }, class: "fa-solid fa-user-group", style:"color: #0bad7c; font-size: 2em;") %>
     <div class="biography" id=<%= @user.id %> data-controller="biography">
       <div class="action">
         <i class="fa-solid fa-pencil"></i>

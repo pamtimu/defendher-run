@@ -2,20 +2,20 @@
   <h1>Friends</h1>
 </div>
 
-<div class="container2">
-    <% @friendships.each do |friend_id| %>
-        <%= link_to user_path(friend_id) do %>
-        <div class="friends">
+<div class=".container">
+  <% @friendships.each do |friendship| %>
+    <% friend = friendship.friend(current_user) %>
+    <%= link_to user_path(friend) do %>
+      <div class="friends">
         <div class="photo">
-            <% user = User.find(friend_id) %>
-            <%= cl_image_tag(user.photo.key, id: "profile") %>
+          <%= cl_image_tag(friend.photo.key, id: "profile") %>
         </div>
         <div class="name">
-            <% user = User.find(friend_id) %>
-            <h2><%= user.first_name %>
-            <%= user.last_name %></h2>
+          <h2><%= friend.first_name %>
+          <%= friend.last_name %></h2>
+          <p><%= friend.running_level %> Runner </p>
         </div>
-        </div>
-        <% end %>
+      </div>
     <% end %>
+  <% end %>
 </div>
