@@ -1,12 +1,11 @@
 <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div class="chatroom-header">
-
-    <% # Determine the other user %>
-    <% @other_user = @chatroom.user_one == current_user ? @chatroom.user_two : @chatroom.user_one %>
-
     <%= link_to(user_path(@other_user)) do %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="<%= @other_user.first_name %>'s profile picture" />
-
+      <% if @other_user.photo.key %>
+        <%= cl_image_tag(@other_user.photo.key) %>
+      <% else %>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      <% end %>
     <% end %>
     <h2><%= @other_user.first_name %> <%= @other_user.last_name %></h2>
 

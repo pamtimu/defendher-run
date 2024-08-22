@@ -3,21 +3,29 @@
 </div>
 
 
-<% if @messages.length != 0 || @friendships.lenght != 0 %>
+<% if @messages.length != 0 || @friendships.length != 0 %>
   <div class="cards">
-    <% @messages.each do |message| %>
-      <%= link_to(message.chatroom) do %>
-        <div class="card-product">
-          <%= cl_image_tag(message.chatroom.user_two.photo.key) %>
-          <div class="card-product-infos">
-            <h2 class="message-updates">New message from <%= message.chatroom.user_two.first_name %></h2>
-            <p><%= message.content %></p>
-
+    <% if @unseen_messages %>
+      <% @unseen_messages.each do |message| %>
+        <%= link_to(message.chatroom) do %>
+          <div class="card-product">
+            <% other_user = message.chatroom.user_one == current_user ? message.chatroom.user_two : message.chatroom.user_one %>
+             <% if other_user.photo.key %>
+              <%= cl_image_tag(other_user.photo.key) %>
+            <% else %>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <% end %>
+            <div class="card-product-infos">
+              <h2 class="message-updates">New message from <%= other_user.first_name %></h2>
+              <p><%= message.content %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
+  <% else %>
+    <p>You have no notifications yet</p>
 <% end %>
 
 

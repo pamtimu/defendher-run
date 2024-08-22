@@ -21,6 +21,7 @@ class PagesController < ApplicationController
     @messages = @chatrooms.map do |chatroom|
       chatroom.messages.includes(:chatroom).order(created_at: :desc).first
     end.compact
+    @unseen_messages = @messages.select { |message| message.seen == false && message.user.id != current_user.id }
     @friendships = Friendship.where(user_one: current_user)
     @friendships.map do |friendship|
     end
