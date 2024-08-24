@@ -1,48 +1,40 @@
-.conatiner {
-  height: 100px;
-  margin: auto;
-  width: 75%;
-  padding: 10px;
-  margin-bottom: 60px;
-}
-
-#button1 {
-  height: 250px;
-  margin: auto;
-  width: 75%;
-  padding: 30px;
-  border-radius: 13px;
-  margin-bottom: 30px;
-  display: block;
-  font-weight: bold;
-  background: pink;
-  box-shadow: rgba(0, 0, 0, 0.60) 0px 5px 15px;
-}
-
-h1, h3 {
-  font-weight: bold;
-}
-
-h1 {
-  font-size: 50px;
-}
-
-#profile {
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  margin-left: 0px;
-  margin-top: 15px;
-}
-
-.button-content {
-  display: flex;
-  height: 100%;
-}
-
-.button-direction {
+.card-product {
+  overflow: hidden;
+  height: fit-content;
+  background: #FAD4D8;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  .message-updates {
+    font-size: 18px;
+  }
+}
+
+.card-product img {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.card-product h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.8);
+}
+
+.card-product p {
+  font-size: 18px;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: rgba(0,0,0,0.4);
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
 }
 
 a {
@@ -52,28 +44,3 @@ a {
 a:hover {
   text-decoration: none;
 }
-
-#button1:hover {
-  transform: scale(1.025);
-}
-
-p {
-  color: black;
-  margin-left: 15px;
-  margin-top: 30px;
-}
-
-#alert-type {
-  color: black;
-  margin-top: 0px;
-  margin-bottom: 15px;
-}
-
-.p2 {
-  font-weight: lighter;
-}
-
-.p1 {
-  font-size: 20px;
-}
-
