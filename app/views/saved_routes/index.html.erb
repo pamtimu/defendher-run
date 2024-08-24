@@ -2,14 +2,14 @@
 <div class="cards">
   <% @saved_routes.each do |saved_route| %>
     <div class="card-trip">
-      <%= image_tag saved_route.route.image, alt: "Trip Image" %>
+      <%= image_tag saved_route.route.image, alt: "Trip Image" if saved_route.route.image.present? %>
       <div class="card-trip-infos">
         <div>
           <h2><%= saved_route.route.name %></h2>
           <p><%= saved_route.route.description %></p>
         </div>
         <%= link_to("delete", saved_route_path(saved_route),
-          data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete your route?"})
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure to remove route from ?"})
         %>
       </div>
     </div>
