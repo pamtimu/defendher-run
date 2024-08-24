@@ -5,3 +5,60 @@
     margin-top: 10px;
   }
 }
+
+.messages .message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.message.my-message {
+  justify-content: flex-end;
+}
+
+.message-bubble {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.my-message .message-bubble {
+  background-color: #edb2bc;
+  border-bottom-right-radius: 0;
+  align-self: flex-end;
+}
+
+.message:not(.my-message) .message-bubble {
+  background-color: #53a07d;
+  border-bottom-left-radius: 0;
+  align-self: flex-start;
+}
+
+.message-bubble:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.my-message .message-bubble:after {
+  border-width: 10px 10px 10px 10px;
+  border-color: #edb2bc transparent transparent transparent;
+  right: -9px;
+  bottom: -10px;
+  rotate: 45deg;
+}
+
+.message:not(.my-message) .message-bubble:after {
+  border-width: 10px 10px 10px 10px;
+  border-color: transparent transparent transparent #53a07d;
+  left: -9px;
+  bottom: -10px;
+  rotate: 45deg;
+}
