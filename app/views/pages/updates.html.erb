@@ -9,9 +9,9 @@
         <%= link_to chatroom_path(update.chatroom) do %>
           <div class="card-product">
             <% if update.user.photo.present? %>
-              <%= cl_image_tag(update.user.photo.key, id: "profile") %>
+              <%= cl_image_tag(update.user.photo.key, id: "profile", class: "avatar-bordered" ) %>
             <% else %>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <img src="https://kitt.lewagon.com/placeholder/users/cveneziani" class="avatar-bordered" />
             <% end %>
             <div class="card-product-infos">
               <h2 class="message-updates">New message from <%= update.user.first_name %></h2>
@@ -23,12 +23,12 @@
       <% elsif update.is_a?(Friendship) %>
         <div class="card-product">
           <% if update.user_one.photo.present? %>
-            <%= cl_image_tag(update.user_one.photo.key, id: "profile") %>
+            <%= cl_image_tag(update.user_one.photo.key, id: "profile", class: "avatar-bordered") %>
           <% else %>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <img src="https://kitt.lewagon.com/placeholder/users/cveneziani" class="avatar-bordered" />
           <% end %>
           <div class="card-product-infos">
-            <h2 class="message-updates">Pending Friend Request</h2>
+            <h2>Pending Friend Request</h2>
             <p><%= update.user_one.first_name %> <%= update.user_one.last_name %></p>
             <div class="friendship-actions mt-2">
               <%= link_to "Accept", accept_friendship_path(update), data: { turbo_method: :patch }, class: "btn btn-success btn-sm me-2" %>
