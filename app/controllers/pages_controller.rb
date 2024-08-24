@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
     @routes = Route.all
@@ -26,6 +26,7 @@ class PagesController < ApplicationController
     @updates = (@messages + @friendships).sort_by { |update| update.created_at }.reverse
 
     @unseen_messages = @messages.select { |message| message.seen == false && message.user.id != current_user.id }
+
   end
 
   def saved_routes
