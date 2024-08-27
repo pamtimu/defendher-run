@@ -37,23 +37,24 @@
   <div class="container">
     <% if !@searched_routes %>
       <% @routes.take(3).each do |route| %>
-        <div class="card-trip">
-          <% if route.image.present? %>
-            <%= image_tag route.image, alt: "Trip Image" %>
-          <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Trip Image"/>
-          <% end %>
-          <div class="card-trip-infos">
-            <div class="route-details">
-              <h2><%= link_to route.name, route_path(route) %></h2>
-              <p>Address: <%= route.address %></p>
-              <p>Distance: <%= route.distance %> km</p>
-              <p>Description: <%= route.description %></p>
+        <%= link_to(route_path(route)) do %>
+          <div class="card-trip">
+            <% if route.image.present? %>
+              <%= image_tag route.image, alt: "Trip Image" %>
+            <% else %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Trip Image"/>
+            <% end %>
+            <div class="card-trip-infos">
+              <div class="route-details">
+                <h2><%= route.name %></h2>
+                <p>Address: <%= route.address %></p>
+                <p>Distance: <%= route.distance %> km</p>
+                <p>Description: <%= route.description %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= route.distance %> km</h2>
             </div>
-
-            <h2 class="card-trip-pricing"><%= route.distance %> km</h2>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% else %>
       <% @searched_routes.each do |route| %>
