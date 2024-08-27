@@ -1,43 +1,48 @@
-.friends {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    background: pink;
-    padding: 8px 8px;
-    border-radius: 12px;
-    margin-top: 20px;
-    margin-left: 2px;
-    margin-right: 2px;
-    box-shadow: rgba(0, 0, 0, 0.60) 0px 5px 5px;
-    width: 100%;
-    font-weight: bold;
-  }
-
-.container1 h1 {
-    margin-left: 100px;
-    margin-right: 100px;
+.container1 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-#photo {
-    border-radius: 50px;
-    size: 5px;
+.card-product-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-.name {
-    margin-left: 25px;
-    color: black;
+.card-product-link {
+  text-decoration: none;
+  color: inherit;
 }
 
-h2 {
-    font-weight: bold;
+.card-product {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 380px;
+  text-align: left;
 }
 
-.friends:hover {
-    transform: scale(1.025);
+.card-product-img {
+  margin-right: 15px;
 }
 
-.name p {
-  font-family: 'Arial', sans-serif;
-  color: #777;
-  margin: 0;
+.card-product-img img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.card-product-info h2 {
+  font-size: 1.25rem;
+  margin: 0 0 5px;
+}
+
+.card-product-info p {
+  font-size: 0.9rem;
+  color: #666;
 }

@@ -1,19 +1,19 @@
 <% if user_signed_in? %>
   <div class="navbar px-3">
     <div class="logo-title">
-      <%= link_to image_tag("navbar_logo.png", alt: "navbar-logo", size: "40x40"), root_path %>
-      <h1>DefendHer RUN</h1>
+      <%= link_to image_tag("navbar_logo.png", alt: "navbar-logo", size: "70x70"), root_path %>
+      <h4>DefendHer RUN</h4>
     </div>
     <div class="actions">
-      <%= link_to("Messages", chatrooms_path) %>
-      <%= link_to("", user_path(current_user), class: "fa-solid fa-user") %>
+      <%= link_to("", chatrooms_path, class:"fa-solid fa-message") %>
+      <%= link_to("", user_path(current_user), class: "fa-solid fa-user fa-lg") %>
     </div>
   </div>
 <% else %>
   <div class="navbar px-3">
     <div class="logo-title">
-      <%= link_to image_tag("navbar_logo.png", alt: "navbar-logo", size: "40x40"), root_path %>
-      <h1>DefendHer RUN</h1>
+      <%= link_to image_tag("navbar_logo.png", alt: "navbar-logo", size: "70x70"), root_path %>
+      <h4>DefendHer RUN</h4>
     </div>
     <div class="actions">
       <%= link_to("Sign Up", new_user_registration_path) %>

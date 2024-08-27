@@ -19,7 +19,11 @@ class PagesController < ApplicationController
   def updates
     @chatrooms = Chatroom.where(user_one: current_user) + Chatroom.where(user_two: current_user)
     @messages = @chatrooms.map do |chatroom|
-      chatroom.messages.includes(:chatroom).order(created_at: :desc).first
+      chatroom.messages
+              .where.not(user_id: current_user.id)
+              .includes(:chatroom)
+              .order(created_at: :desc)
+              .first
     end.compact
 
     @friendships = Friendship.where(user_two: current_user, accepted: "pending")

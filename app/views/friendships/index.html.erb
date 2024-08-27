@@ -2,18 +2,17 @@
   <h1>Friends</h1>
 </div>
 
-<div class=".container">
+<div class="card-product-wrapper">
   <% @friendships.each do |friendship| %>
     <% friend = friendship.friend(current_user) %>
-    <%= link_to user_path(friend) do %>
-      <div class="friends">
-        <div class="photo">
+    <%= link_to user_path(friend), class: "card-product-link" do %>
+      <div class="card-product">
+        <div class="card-product-img">
           <%= cl_image_tag(friend.photo.key, id: "profile") %>
         </div>
-        <div class="name">
-          <h2><%= friend.first_name %>
-          <%= friend.last_name %></h2>
-          <p><%= friend.running_level %> Runner </p>
+        <div class="card-product-info">
+          <h2><%= friend.first_name %> <%= friend.last_name %></h2>
+          <p><%= friend.running_level %> Runner</p>
         </div>
       </div>
     <% end %>

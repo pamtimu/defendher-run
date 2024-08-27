@@ -2,18 +2,21 @@
   background: pink;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 80px;
   color: rgba(0,0,0,0.3);
-  width: max;
-  position: sticky;
+  width: 100%;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .footer-links {
   display: flex;
   align-items: center;
-  max-width: 80%;
+  width: 100%;
+  justify-content: center;
   color: green;
   p {
     line-height: 0;
