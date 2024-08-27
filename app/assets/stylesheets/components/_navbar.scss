@@ -13,21 +13,26 @@
     height: 100%;
     display: flex;
     align-items: center;
-    gap: 10px;
-
   }
   a {
     color: rgba(0, 0, 0, 0.741);
     text-decoration: none;
   }
+
+  h4 {
+    margin-bottom: 0px;
+  }
   .actions {
     display: flex;
     justify-content: right;
-    width: 110px;
+    width: 120px;
     height: 100%;
     margin-top: 0px;
     a {
       font-size: 25px;
+    }
+    #action {
+      font-size: 11px;
     }
   }
 }
