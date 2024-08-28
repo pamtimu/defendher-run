@@ -1,9 +1,33 @@
-<h2 style="text-align: center;"><strong>Defendher Run AI Coach</strong></h2>
-<h4 style="text-align: center;">Create your training program</h4>
+<h2 style="text-align: center; font-weight: bold;">DefendHer Run AI Coach</h2>
+<h4 style="text-align: center; margin-bottom: 20px;">Create your training program</h4>
 
-<%= simple_form_for (@coach) do |f| %>
-  <%= f.input :name, label: 'Event Name' %>
-  <%= f.input :duration, label: 'Goal/Race Date:', hint: 'When is your race/goal event? Date', required: true %>
-  <%= f.input :distance, label: 'Race Distance', hint: 'How many km/miles is your race/goal?', required: true %>
-  <%= f.button :submit, 'Create Training Program', class: 'btn btn-success' %>
-<% end %>
+<div data-controller="loading">
+  <div class="form-container" style="max-width: 600px; margin: 0 auto;">
+    <%= simple_form_for(@coach, data: { action: "turbo:submit-start->loading#showSpinner" }) do |f| %>
+      <div class="form-group">
+        <%= f.input :name, label: 'Event Name', input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :duration, label: 'Goal/Race Date', hint: 'When is your race/goal event?', required: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :distance, label: 'Race Distance', hint: 'How many km/miles is your race/goal?', required: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' } %>
+      </div>
+
+      <div class="form-group" style="text-align: center;">
+        <%= f.button :submit, 'Create Training Program', class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div id="loading-spinner" data-loading-target="spinner" class="spinner" style="display:none; text-align: center; margin-top: 20px;">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div id="ai-response" style="margin-top: 20px;"></div>
+</div>
