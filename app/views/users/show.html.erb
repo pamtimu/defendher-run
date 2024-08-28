@@ -1,7 +1,7 @@
 <div class="users-header">
   <% if current_user.id == @user.id %>
   <div class="logout">
-    <%= link_to("Logout", destroy_user_session_path, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }) %>
+    <%= link_to("Logout", destroy_user_session_path, class: 'btn btn-success', data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }) %>
   </div>
   <% end %>
   <% if @user.photo.key %>
