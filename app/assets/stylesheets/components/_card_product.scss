@@ -1,12 +1,13 @@
 .card-product {
   overflow: hidden;
-  height: 80px;
+  height: fit-content;
   background: #FAD4D8;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   border-radius: 10px;
   margin-bottom: 16px;
+  padding: 6px;
   .message-updates {
     font-size: 18px;
   }
