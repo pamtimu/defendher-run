@@ -1815,8 +1815,8 @@ Route.create!(
 )
 
 admin = User.create!(
-  first_name: "Admin",
-  last_name: "User",
+  first_name: "Kelly",
+  last_name: "Kapoor",
   email: "admin@admin.com",
   password: "123456",
   date_of_birth: Date.new(1990, 1, 13),
@@ -1825,13 +1825,13 @@ admin = User.create!(
   state: "VIC"
 )
 
-file = URI.open("https://avatars.githubusercontent.com/u/163466371?v=4")
+file = URI.open("https://openpsychometrics.org/tests/characters/test-resources/pics/TO/13.jpg")
 admin.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 admin.save
 
 admin2 = User.create!(
-  first_name: "Admin2",
-  last_name: "User2",
+  first_name: "Pam ",
+  last_name: "Timu",
   email: "admin@admin2.com",
   password: "123456",
   date_of_birth: Date.new(1990, 1, 13),
@@ -1885,7 +1885,7 @@ admin2.save
 
 puts "Creating users..."
 users = []
-5.times do
+10.times do
   users << User.new(
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
