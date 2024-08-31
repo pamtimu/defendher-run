@@ -1822,7 +1822,7 @@ admin = User.create!(
   date_of_birth: Date.new(1990, 1, 13),
   running_level: "Athlete",
   address: "12 Bro street",
-  state: "VIC"
+  state: "QLD"
 )
 
 file = URI.open("https://openpsychometrics.org/tests/characters/test-resources/pics/TO/13.jpg")
@@ -1837,7 +1837,7 @@ admin2 = User.create!(
   date_of_birth: Date.new(1990, 1, 13),
   running_level: "Athlete",
   address: "1 steele street",
-  state: "VIC"
+  state: "QLD"
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/161913002?v=4")
@@ -1845,7 +1845,50 @@ admin2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 admin2.save
 
 
+admin3 = User.create!(
+  first_name: "Phyllis ",
+  last_name: "Vance",
+  email: "admin@admin3.com",
+  password: "123456",
+  date_of_birth: Date.new(1960, 1, 13),
+  running_level: "Athlete",
+  address: "1 steele street",
+  state: "QLD"
+)
 
+file = URI.open("https://img.nbc.com/files/images/2013/11/12/phyllis-500x500.jpg")
+admin3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+admin3.save
+
+admin4 = User.create!(
+  first_name: "Pam ",
+  last_name: "Halpert",
+  email: "admin@admin4.com",
+  password: "123456",
+  date_of_birth: Date.new(1960, 1, 13),
+  running_level: "Athlete",
+  address: "1 steele street",
+  state: "QLD"
+)
+
+file = URI.open("https://www.indystar.com/gcdn/-mm-/93ec0537e21d15b92d4c2ad82f324ca9cf31a500/c=0-0-1992-2656/local/-/media/2018/02/20/INGroup/Indianapolis/636547377088732518-BOG-00147.jpg?width=660&height=880&fit=crop&format=pjpg&auto=webp")
+admin4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+admin4.save
+
+admin5 = User.create!(
+  first_name: "Angela ",
+  last_name: "Kinsey",
+  email: "admin@admin5.com",
+  password: "123456",
+  date_of_birth: Date.new(1960, 1, 13),
+  running_level: "Athlete",
+  address: "1 steele street",
+  state: "QLD"
+)
+
+file = URI.open("https://s.abcnews.com/images/GMA/the-office-angela-kinsey-01-gty-llr-210128_1611864788421_hpEmbed_2x3_992.jpg")
+admin5.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+admin5.save
 # puts 'Creating chatrooms...'
 # chatroom = Chatroom.create!(
 #   user_one: user_one,
