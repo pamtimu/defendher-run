@@ -1871,7 +1871,7 @@ admin4 = User.create!(
   state: "QLD"
 )
 
-file = URI.open("https://www.indystar.com/gcdn/-mm-/93ec0537e21d15b92d4c2ad82f324ca9cf31a500/c=0-0-1992-2656/local/-/media/2018/02/20/INGroup/Indianapolis/636547377088732518-BOG-00147.jpg?width=660&height=880&fit=crop&format=pjpg&auto=webp")
+file = URI.open("https://openpsychometrics.org/tests/characters/test-resources/pics/TO/4.jpg")
 admin4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 admin4.save
 
@@ -1940,7 +1940,7 @@ users = []
       min_age: 18,
       max_age: 65
     ),
-    running_level: ["Beginner", "Intermediate", "Novice", "Marthon", "Athlete"].sample
+    running_level: ["Beginner", "Intermediate", "Novice", "Marathon", "Athlete"].sample
   )
 end
 
