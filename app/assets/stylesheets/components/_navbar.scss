@@ -13,6 +13,13 @@
     height: 100%;
     display: flex;
     align-items: center;
+    img {
+      height: 55px;
+      width: 55px;
+    }
+    h4 {
+      font-size: 20px;
+    }
   }
   a {
     color: rgba(0, 0, 0, 0.741);
@@ -32,7 +39,7 @@
       font-size: 25px;
     }
     #action {
-      font-size: 11px;
+      font-size: 10px;
     }
   }
 }
